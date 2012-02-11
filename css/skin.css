@@ -1,0 +1,254 @@
+html,
+body {
+  background: #49423D;
+  margin: 0;
+  padding: 0;
+}
+body {
+  color: #333;
+  font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif;
+  font-size: 14px;
+}
+
+a,
+a:active,
+a:visited {
+  color: #cc0000;
+  text-decoration: none;
+}
+a:hover {
+  color: #111;
+  text-decoration: underline;
+}
+
+ul {
+  list-style: none;
+}
+
+.clearfix {
+  height: 1%;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+
+@font-face {
+  font-family: 'ChunkFiveRegular';
+  src: url('../fonts/Chunkfive-webfont.eot');
+  src: url('../fonts/Chunkfive-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Chunkfive-webfont.woff') format('woff'),
+       url('../fonts/Chunkfive-webfont.ttf') format('truetype'),
+       url('../fonts/Chunkfive-webfont.svg#ChunkFiveRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DanielRegular';
+  src: url('../fonts/daniel-webfont.eot');
+  src: url('../fonts/daniel-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/daniel-webfont.woff') format('woff'),
+       url('../fonts/daniel-webfont.ttf') format('truetype'),
+       url('../fonts/daniel-webfont.svg#DanielRegular') format('svg');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'DanielBold';
+  src: url('../fonts/danielbd-webfont.eot');
+  src: url('../fonts/danielbd-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/danielbd-webfont.woff') format('woff'),
+       url('../fonts/danielbd-webfont.ttf') format('truetype'),
+       url('../fonts/danielbd-webfont.svg#DanielBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+#header,
+ul.topnav,
+#content {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+/** Header **/
+
+#header {
+  /*background-color: #C4C4C4;*/
+
+  /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#999999');*/
+  /*background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#999));*/
+  /*background: -moz-linear-gradient(top,  #ccc,  #999);*/
+
+  padding-top: 1px;
+}
+
+h1 {
+  color: #ccc;
+  font: 30px/38px 'DanielRegular', Arial, sans-serif;
+  letter-spacing: 2px;
+  float: left;
+  /* margin: 0 auto 25px;
+  text-align: center; */
+  margin: 20px 30px 20px 50px;
+}
+#header h2 {
+  color: #bbb;
+  float: left;
+  font-size: 16px;
+  font-weight: normal;
+  margin: 33px 0 0;
+}
+
+
+/** Navigation Drop-Down Menu */
+
+#nav {
+  background: #CFBE27;
+  margin-bottom: 50px;
+  /*background: #40866A;*/
+  /*padding-left: 50px;*/
+}
+
+ul.topnav {
+  list-style: none;
+  padding: 0 0 0 80px;
+  font-size: 16px;
+}
+ul.topnav li {
+  /*background: #BCBDAC;*/
+  /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');*/
+  /*background: -webkit-gradient(linear, left top, left bottom, from(#A76939), to(#A03622));*/
+  /*background: -moz-linear-gradient(top,  #A76939,  #AB5234);*/
+  /*border: 1px solid #333;*/
+  /*-moz-border-radius: 5px;*/
+  /*border-radius: 5px;*/
+  /*border-left: 3px solid #ccc;*/
+  /*border-right: 3px solid #ccc;*/
+  float: left;
+  margin: 0 15px 0 0;
+  padding: 0 20px 0 5px;
+  position: relative; /*--Declare X and Y axis base for sub navigation--*/
+}
+ul.topnav li a {
+  padding: 10px 5px;
+  color: #444;
+  display: block;
+  text-decoration: none;
+  float: left;
+}
+ul.topnav li a:hover{
+  text-decoration: underline;
+}
+
+ul.topnav li span { /*--Drop down trigger styles--*/
+  width: 17px;
+  height: 39px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  /*float: left;*/
+  background: url(../images/arrow_down.png) no-repeat center center;
+}
+ul.topnav li span.subhover {
+  /*background-position: center bottom; */
+  cursor: pointer;
+} /*--Hover effect for trigger--*/
+
+ul.topnav li ul.subnav {
+  list-style: none;
+  position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
+  left: 0; top: 39px;
+  background: #CFCA9C;
+  -moz-box-shadow: 0 -1px 15px #555;
+  -webkit-box-shadow: 0 -1px 15px #555;
+  box-shadow: 0 -1px 15px #555;
+  margin: 0; padding: 0;
+  display: none;
+  float: left;
+  width: 170px;
+}
+ul.topnav li ul.subhovernav li{
+  margin: 0; padding: 0;
+  border-top: 1px solid #252525; /*--Create bevel effect--*/
+  border-bottom: 1px solid #444; /*--Create bevel effectffect--*/
+  clear: both;
+  width: 170px;
+}
+html ul.topnav li ul.subnav list a {
+  float: left;
+  width: 145px;
+  /*background: #333 url(dropdown_linkbg.gif) no-repeat 10px center;*/
+  padding-left: 20px;
+}
+html ul.topnav li ull.subnav li a:hover { /*--Hover effect for subnav links--*/
+  /*background: #222 url(dropdown_linkbg.gif) no-repeat 10px center;*/
+}
+
+
+/** Content **/
+
+ul.tab-bar {
+  margin: 30px 0 0;
+}
+ul.tab-bar li {
+  float: left;
+  padding: 10px 10px;
+} ul.tab-bar a {
+  background-color: #999;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+  color: #555;
+  padding: 10px 25px;
+}
+ul.tab-bar a.active {
+  background-color: #ddd;
+  color: #000;
+}
+
+#content div.tab {
+  display: none;
+}
+#content div.tab.active {
+  display: block;
+  background-color: #ddd;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: 0 -1px 15px #555;
+  -webkit-box-shadow: 0 -1px 15px #555;
+  box-shadow: 0 -1px 15px #555;
+  margin: 0;
+  padding: 15px 0;
+}
+#content h3 {
+  font-size: 18px;
+  text-align: center;
+}
+
+
+/* image loading background image */
+
+#gallery {
+  visibility: hidden;
+}
+#gallery li.loading {
+  background: url(../images/spinner.gif) no-repeat center center;
+}
+
+
+/* image caption */
+
+p.bf-caption {
+  color: #999;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.5em;
+  margin: 0;
+  text-align: left;
+}
