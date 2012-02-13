@@ -38,16 +38,6 @@ ul {
 
 
 @font-face {
-  font-family: 'ChunkFiveRegular';
-  src: url('../fonts/Chunkfive-webfont.eot');
-  src: url('../fonts/Chunkfive-webfont.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/Chunkfive-webfont.woff') format('woff'),
-       url('../fonts/Chunkfive-webfont.ttf') format('truetype'),
-       url('../fonts/Chunkfive-webfont.svg#ChunkFiveRegular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
   font-family: 'DanielRegular';
   src: url('../fonts/daniel-webfont.eot');
   src: url('../fonts/daniel-webfont.eot?#iefix') format('embedded-opentype'),
@@ -55,16 +45,6 @@ ul {
        url('../fonts/daniel-webfont.ttf') format('truetype'),
        url('../fonts/daniel-webfont.svg#DanielRegular') format('svg');
   font-weight: normal;
-}
-@font-face {
-  font-family: 'DanielBold';
-  src: url('../fonts/danielbd-webfont.eot');
-  src: url('../fonts/danielbd-webfont.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/danielbd-webfont.woff') format('woff'),
-       url('../fonts/danielbd-webfont.ttf') format('truetype'),
-       url('../fonts/danielbd-webfont.svg#DanielBold') format('svg');
-  font-weight: normal;
-  font-style: normal;
 }
 
 
@@ -212,6 +192,9 @@ ul.tab-bar a.active {
   color: #000;
 }
 
+#content {
+  height: 300px;
+}
 #content div.tab {
   display: none;
 }

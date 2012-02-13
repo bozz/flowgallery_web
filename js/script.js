@@ -1,52 +1,54 @@
 $(function() {
 
-  // add span for trigger element
-  $("ul.subnav").parent().append("<span></span>");
-
-  $("ul.topnav li span").click(function() {
-
-    $subnav = $(this).parent().find("ul.subnav");
-    $subnav.show(); // .slideDown('fast')
-
-    $(this).parent(this).hover(function() {
-      // nothing on hover over
-    }, function(){
-      $subnav.fadeOut('fast'); //slideUp('slow');
-    });
-
-  }).hover(function() {
-    $(this).addClass("subhover");
-  }, function(){
-    $(this).removeClass("subhover");
-  });
-
-  var FlowUtils = {
-    /**
-     * Very basic tabbing functionality. Expects list with links
-     * that contain anchors (i.e. #demo) that correspond to an ID
-     * in the form: #demo-tab.
-     * @param {string} selector expected <UL> list element
-     */
-    initTabs: function(selector) {
-      var $tabLinks = $(selector + " li a");
-      $tabLinks.each(function(i) {
-        var tabName = this.href.split('#').pop();
-        var $tab = $(this).parent().parent().parent().find('div.' + tabName);
-        $(this).click(function() {
-          $(selector).find('.active').removeClass('active');
-          $(this).addClass('active');
-          $tab.addClass('active').siblings().removeClass('active');
-        });
-      });
-    }
+  var spinOpts = {
+    lines: 8, // The number of lines to draw
+    length: 30, // The length of each line
+    width: 7, // The line thickness
+    radius: 22, // The radius of the inner circle
+    color: '#ddd', // #rgb or #rrggbb
+    speed: 1.3, // Rounds per second
+    trail: 60, // Afterglow percentage
+    shadow: false, // Whether to render a shadow
+    hwaccel: true // Whether to use hardware acceleration
   };
+  console.log("test...");
+  var target = document.getElementById('content');
+  var spinner = new Spinner(spinOpts).spin(target);
 
 
-  $('#content').load('demos/default_settings.html', function() {
-    console.log("test...");
-    FlowUtils.initTabs('ul.tab-bar');
-    initDemoDefault();
-  });
+  // init main drop-down menu
+  $('ul.topnav').dropit().find('a').click(menuClickHandler);
+
+  function menuClickHandler() {
+    loadContent(this.href);
+    return false;
+  }
+
+
+  function loadContent(url) {
+    spinner.spin();
+    console.log("url: ", url);
+    if(url.charAt(url.length-1) === '#') {
+      $('#content .section').hide();
+      console.log("chacha...");
+      return;
+    }
+    $('#content').html('').addClass('loading').load(url, function() {
+      spinner.stop();
+      $('ul.tab-bar').tabs();
+
+      initDemoDefault();
+
+      // initialize code highlighting...
+      $('pre code').each(function(i, e) {
+        hljs.highlightBlock(e, '    ');
+      });
+    });
+  }
+
+
+
+  //loadContent('demos/default_settings.html');
 
   $('#demo-selector').change(function() {
     var link = $(this).find('option:selected').val();
@@ -105,6 +107,6 @@ $(function() {
   };
 
   // init default
-  initDemoDefault();
+  //initDemoDefault();
 
 });
