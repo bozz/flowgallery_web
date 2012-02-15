@@ -69,21 +69,6 @@ $(function() {
     });
   }
 
-  //handle hash changes
-  function handleHashChanges(newHash, oldHash){
-    console.log("jaja", newHash);
-    if(newHash.indexOf('demos/') !== -1) {
-      loadContent(newHash);
-    } else {
-      //spinner.stop();
-      //$('#content > div.active').show();
-    }
-  }
-
-  hasher.changed.add(handleHashChanges); //add hash change listener
-  //hasher.initialized.add(handleHashChanges); //add initialized listener (to grab initial value in case it is already set)
-  hasher.init(); //initialize hasher (start listening for history changes)
-
   // init start page
   initSection();
 

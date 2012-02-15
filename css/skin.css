@@ -14,7 +14,7 @@ a,
 a:active,
 a:visited {
   color: #cc0000;
-  text-decoration: none;
+  /*text-decoration: none;*/
 }
 a:hover {
   color: #111;
@@ -50,7 +50,8 @@ ul {
 
 #header,
 ul.topnav,
-#content {
+#content,
+#footer {
   margin: 0 auto;
   max-width: 1000px;
 }
@@ -134,10 +135,11 @@ ul.topnav li a {
   padding: 10px 5px;
   color: #444;
   display: block;
-  text-decoration: none;
+  /*text-decoration: none;*/
   float: left;
 }
 ul.topnav li a:hover{
+  color: #000;
   text-decoration: underline;
 }
 
@@ -181,42 +183,62 @@ html ul.topnav li ul.subnav list a {
   /*background: #333 url(dropdown_linkbg.gif) no-repeat 10px center;*/
   padding-left: 20px;
 }
-html ul.topnav li ull.subnav li a:hover { /*--Hover effect for subnav links--*/
+html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
   /*background: #222 url(dropdown_linkbg.gif) no-repeat 10px center;*/
 }
 
 
 /** Content **/
 
-ul.tab-bar {
-  margin: 30px 0 0;
-}
-ul.tab-bar li {
-  float: left;
-  padding: 10px 10px;
-} ul.tab-bar a {
-  background-color: #999;
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-  color: #555;
-  padding: 10px 25px;
-}
-ul.tab-bar a.active {
-  background-color: #ddd;
-  color: #000;
-}
-
 #content {
   min-height: 300px;
-  margin-bottom: 50px;
 }
 #content.fixed-nav {
   margin-top: 65px;
 }
 #content .section {
   /*display: none;*/
+  padding-top: 30px;
+}
+#demos {
+  background: #ddd;
+  padding-top: 20px;
+}
+#demos > h3 {
+  margin: 0 25px;
+}
+#demos div.section h3 {
+  text-align: center;
+}
+
+ul.tab-bar {
+  margin: 0 0 0;
+  padding: 0 15px;
+}
+ul.tab-bar li {
+  float: left;
+  padding: 10px 10px;
+}
+ul.tab-bar a {
+  background-color: #999;
+  color: #555;
+  padding: 10px 25px;
+}
+#content div.documentation div.active,
+ul.tab-bar a {
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+ul.tab-bar a.active {
+  background-color: #ddd;
+  color: #000;
+  cursor: default;
+  text-decoration: none;
+}
+ul.tab-bar a:hover {
+  color: #000;
 }
 #content div.tab {
   display: none;
@@ -224,22 +246,48 @@ ul.tab-bar a.active {
 #content div.tab.active {
   display: block;
   background-color: #ddd;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  -moz-box-shadow: 0 -1px 15px #555;
-  -webkit-box-shadow: 0 -1px 15px #555;
-  box-shadow: 0 -1px 15px #555;
+  /*-moz-border-radius: 5px;*/
+  /*border-radius: 5px;*/
+  /*-moz-box-shadow: 0 -1px 15px #555;*/
+  /*-webkit-box-shadow: 0 -1px 15px #555;*/
+  /*box-shadow: 0 -1px 15px #555;*/
   margin: 0;
   padding: 15px 25px;
 }
+#demos ul.tab-bar a.active,
+#demos div.tab.active {
+  background-color: #807B73;
+}
+#demos div.tab.demo {
+  padding: 15px 0;
+}
 #content h3 {
   font-size: 18px;
-  text-align: center;
+  /*text-align: center;*/
 }
 
 pre code {
   -moz-border-radius: 5px;
   border-radius: 5px;
+}
+
+
+/* Footer */
+
+#footer {
+  background-color: #ddd;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 0.9em;
+  margin-bottom: 50px;
+  padding: 8px 0;
+  text-align: center;
+}
+#footer a {
+  color: #333;
+  text-decoration: underline;
 }
 
 /* image loading background image */
