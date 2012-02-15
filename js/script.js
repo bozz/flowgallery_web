@@ -1,4 +1,18 @@
 $(function() {
+  var theLoc = $('#nav').position().top;
+  $(window).scroll(function() {
+    if(theLoc >= $(window).scrollTop()) {
+      if($('#nav').hasClass('fixed')) {
+        $('#nav').removeClass('fixed');
+        $('#content').removeClass('fixed-nav');
+      }
+    } else { 
+      if(!$('#nav').hasClass('fixed')) {
+        $('#nav').addClass('fixed');
+        $('#content').addClass('fixed-nav');
+      }
+    }
+  });
 
   var spinOpts = {
     lines: 8, // The number of lines to draw
@@ -11,102 +25,69 @@ $(function() {
     shadow: false, // Whether to render a shadow
     hwaccel: true // Whether to use hardware acceleration
   };
-  console.log("test...");
-  var target = document.getElementById('content');
-  var spinner = new Spinner(spinOpts).spin(target);
+  var contentElem = document.getElementById('content');
+  var spinner = new Spinner(spinOpts).spin(contentElem);
+  spinner.stop();
 
+
+  // cache for loaded sections, contains
+  // key/value with hash/section
+  var sectionCache = {};
 
   // init main drop-down menu
-  $('ul.topnav').dropit().find('a').click(menuClickHandler);
-
-  function menuClickHandler() {
-    loadContent(this.href);
-    return false;
-  }
+  $('ul.topnav').dropit();
 
 
   function loadContent(url) {
-    spinner.spin();
-    console.log("url: ", url);
-    if(url.charAt(url.length-1) === '#') {
-      $('#content .section').hide();
-      console.log("chacha...");
-      return;
-    }
-    $('#content').html('').addClass('loading').load(url, function() {
-      spinner.stop();
-      $('ul.tab-bar').tabs();
+    //spinner.spin();
+    //if(url.charAt(url.length-1) === '#') {
+      //$('#content .section').hide();
+      //return;
+    //}
+    //$('#content').addClass('loading');
 
-      initDemoDefault();
-
-      // initialize code highlighting...
-      $('pre code').each(function(i, e) {
-        hljs.highlightBlock(e, '    ');
-      });
+    $.ajax({
+      url: url,
+      dataType: 'html',
+      cache: false,
+      success: function(html){
+        $('#content > div.active').removeClass('active');
+        $("#content").append(html);
+        spinner.stop();
+        initSection();
+        $('#content > div.active').fadeIn('slow');
+      }
     });
   }
 
+  // some basic initialization of tabs
+  // and any code highlighting
+  function initSection() {
+    $('ul.tab-bar').tabs();
+    $('pre code').each(function(i, e) {
+      hljs.highlightBlock(e, '    ');
+    });
+  }
 
-
-  //loadContent('demos/default_settings.html');
-
-  $('#demo-selector').change(function() {
-    var link = $(this).find('option:selected').val();
-
-    // reset gallery
-    $('#gallery').data('flowgallery', null)
-      .find('li').removeClass('active');
-
-    switch(link) {
-      case '#demo_default':
-        initDemoDefault();
-        break;
-      case '#demo_equal_size':
-        initDemoEqualSize();
-        break;
-      case '#demo_multiple_galleries':
-        initDemoMultipleGalleries();
-        break;
-      case '#demo_scripting':
-        initDemoScripting();
-        break;
+  //handle hash changes
+  function handleHashChanges(newHash, oldHash){
+    console.log("jaja", newHash);
+    if(newHash.indexOf('demos/') !== -1) {
+      loadContent(newHash);
+    } else {
+      //spinner.stop();
+      //$('#content > div.active').show();
     }
+  }
+
+  hasher.changed.add(handleHashChanges); //add hash change listener
+  //hasher.initialized.add(handleHashChanges); //add initialized listener (to grab initial value in case it is already set)
+  hasher.init(); //initialize hasher (start listening for history changes)
+
+  // init start page
+  initSection();
+
+  $('#gallery1').flowgallery({
+    easing: 'easeOutCubic'
   });
-
-
-  var initDemoDefault = function() {
-    $('#gallery').flowgallery({
-      easing: 'easeOutCubic'
-    });
-    $('#gallery2').flowgallery({
-      easing: 'easeOutCubic'
-    });
-  };
-
-  var initDemoEqualSize = function() {
-    $('#gallery').flowgallery({
-      easing: 'easeOutCubic',
-      imagePadding: 0,
-      thumbPadding: 0,
-      thumbHeight: 400,
-      thumbWidth: 640
-    });
-  };
-
-  var initDemoMultipleGalleries = function() {
-    $('#gallery').flowgallery({
-      easing: 'easeOutCubic'
-    });
-  };
-
-  var initDemoScripting = function() {
-    $('#gallery').flowgallery({
-      easing: 'easeOutCubic'
-    });
-    console.log("check: ", $('#gallery').data('flowgallery'));
-  };
-
-  // init default
-  //initDemoDefault();
-
 });

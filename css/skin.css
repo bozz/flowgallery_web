@@ -39,11 +39,11 @@ ul {
 
 @font-face {
   font-family: 'DanielRegular';
-  src: url('../fonts/daniel-webfont.eot');
-  src: url('../fonts/daniel-webfont.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/daniel-webfont.woff') format('woff'),
-       url('../fonts/daniel-webfont.ttf') format('truetype'),
-       url('../fonts/daniel-webfont.svg#DanielRegular') format('svg');
+  src: url('fonts/daniel-webfont.eot');
+  src: url('fonts/daniel-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/daniel-webfont.woff') format('woff'),
+       url('fonts/daniel-webfont.ttf') format('truetype'),
+       url('fonts/daniel-webfont.svg#DanielRegular') format('svg');
   font-weight: normal;
 }
 
@@ -89,9 +89,25 @@ h1 {
 
 #nav {
   background: #CFBE27;
-  margin-bottom: 50px;
+  /*margin-bottom: 50px;*/
   /*background: #40866A;*/
   /*padding-left: 50px;*/
+  -moz-box-shadow: 0 -1px 25px #444;
+  -webkit-box-shadow: 0 -1px 25px #444;
+  box-shadow: 0 -1px 25px #444;
+  height: 35px;
+  width: 100%;
+  z-index: 9999;
+}
+.fixed {
+  position: fixed;
+  top: 0;
+}
+#github-link {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 99999;
 }
 
 ul.topnav {
@@ -193,7 +209,14 @@ ul.tab-bar a.active {
 }
 
 #content {
-  height: 300px;
+  min-height: 300px;
+  margin-bottom: 50px;
+}
+#content.fixed-nav {
+  margin-top: 65px;
+}
+#content .section {
+  /*display: none;*/
 }
 #content div.tab {
   display: none;
@@ -207,13 +230,17 @@ ul.tab-bar a.active {
   -webkit-box-shadow: 0 -1px 15px #555;
   box-shadow: 0 -1px 15px #555;
   margin: 0;
-  padding: 15px 0;
+  padding: 15px 25px;
 }
 #content h3 {
   font-size: 18px;
   text-align: center;
 }
 
+pre code {
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
 
 /* image loading background image */
 

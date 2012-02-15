@@ -1,67 +1,162 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>flowgallery.js - a jQuery image gallery</title>
-    <meta name="description" content="Demo page for FlowGallery jQuery plugin - image gallery based on cover flow effect." />
+    <meta name="description" content="flowgallery.js jQuery plugin - image gallery based on cover flow effect." />
     <meta name="author" content="Boris Searles" />
     <link rel="stylesheet" href="css/skin.css" type="text/css" media="screen" charset="utf-8" />
     <link rel="stylesheet" href="js/highlight/solarized_dark.css" type="text/css" media="screen" charset="utf-8" />
   </head>
   <body>
 
-    <div class="black_overlay"></div>
     <div id="header">
       <h1>flowgallery.js</h1>
       <h2>a jQuery image gallery</h2>
       <div class="clearfix"></div>
-      <a href="http://github.com/bozz/flowgallery"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" /></a>
+      <a id="github-link" href="http://github.com/bozz/flowgallery"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" /></a>
     </div><!-- #header -->
+
     <div id="nav" class="clearfix">
       <ul class="topnav">
+        <li><a href="#documentation">Documentation</a></li>
         <li>
-          <a href="#">Documentation</a>
+          <a href="#demos">Demos</a>
           <ul class="subnav">
-            <li><a href="#">Documentation</a></li>
-            <li><a href="#">Config Options</a></li>
+            <li><a href="#demos/default_settings.html">Default Settings</a></li>
+            <li><a href="#demos/equal_sizes.html">Equal Sizes</a></li>
           </ul>
         </li>
-        <li>
-          <a href="#">Demos</a>
-          <ul class="subnav">
-            <li><a href="demos/default_settings.html">Default Settings</a></li>
-            <li><a href="demos/equal_sizes.html">Equal Sizes</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Download</a></li>
+        <li><a href="#download">Download</a></li>
       </ul>
     </div><!-- #nav -->
 
     <div id="content">
-      <!-- content loaded here... -->
+      <div class="section active">
+  <ul class="tab-bar clearfix">
+    <li><a class="active" href="#docs">Documentation</a></li>
+    <li><a href="#config">Config Options</a></li>
+  </ul>
+  <div class="tab docs active">
+    <h3>Documentation</h3>
+    jQuery plugin for image galleries with a cover flow effect.
+
+    Demo: "http://lucidgardens.com/flowgallery":http://lucidgardens.com/lab/flowgallery
+
+    <h3>Usage</h3>
+
+    The required markup for the image gallery is a simple unordered list of images:
+
+<pre><code class="html">
+&lt;ul id="gallery"&gt;
+  &lt;li&gt;&lt;img src="..." title="image caption text" alt="image" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="..." title="image caption text" alt="image" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="..." title="image caption text" alt="image" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="..." title="image caption text" alt="image" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="..." title="image caption text" alt="image" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="..." title="image caption text" alt="image" /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+    For basic usage, select the appropriate list and initialize as follows: 
+
+<pre><code class="javascript">
+$("#gallery").flowGallery({
+  easing: 'easeOutCubic',
+  imagePadding: 6
+});
+</code></pre>
+    The gallery works best if full width of browser window can be used. No direct CSS styling of gallery list required, the plugin sets everything up as needed. Be careful if you do any CSS styling of the list, this could break functionality.
+
+    The only CSS styling needed, is for the loading image as specified by the 'loadingClass' attribute. Here is an example, adjust accordingly:
+
+<pre><code class="css">
+#gallery li.loading {
+  background: url(../images/spinner.gif) no-repeat center center;
+}
+</code></pre>
+    </div>
+
+    <div class="tab config">
+      <h3>Config Options</h3>
+      <ul>
+        <li>activeIndex - (integer) the index of the image that should initially be loaded as active, default: @0@</li>
+        <li>animate - (boolean) should the image transitions be animated, default: @true@</li>
+        <li>enableKeyNavigation - (boolean) specifies if arrow keys (left and right) can be used for navigation, default: @true@</li>
+        <li>forwardOnActiveClick - (boolean) specifies if next image should be shown when clicking on active image, default: @false@</li>
+        <li>forceWidth - (false | integer) if specified, sets all images to this width, default: @false@</li>
+        <li>forceHeight - (false | integer) if specified, sets all images to this height, default: @false@</li>
+        <li>backgroundColor - (string) the background color of the border and caption, default: @"black"@</li>
+        <li>thumbWidth - ('auto' | integer) the width of the image thumbnails or 'auto', calculated based on aspect ratio from thumbHeight (value set to 100px if both thumbWidth and thumbHeight are set to 'auto'), default: @"auto"@</li>
+        <li>thumbHeight - ('auto' | integer) the height of image thumbnails or 'auto', calculated based on aspect ratio from thumbWidth, default: @"auto"@</li>
+        <li>thumbTopOffset - ('auto'|integer) the top offset of all thumbnails or 'auto' to center based on initial active image, default: @"auto"@</li>
+        <li>imagePadding - (integer) the visible border around active images, default: @4@</li>
+        <li>thumbPadding - (integer) the visible border around thumbnails, default: @3@</li>
+        <li>loadingClass - (string) CSS class applied to &lt;li&gt; elements while image is loading, should be used to specify background loading image, default: @"loading"@</li>
+        <li>easing - (string) easing method to use for animation, default: @"linear"@</li>
+        <li>duration - (string|integer) duration setting for animations, default: @900@</li>
+      </ul>
+
+    </div>
+  </div>
+
+      <div class="section active">
+  <ul class="tab-bar clearfix">
+    <li><a class="active" href="#demo">Demo</a></li>
+    <li><a href="#html">HTML</a></li>
+    <li><a href="#js">Javascript</a></li>
+  </ul>
+  <div class="tab demo active">
+    <h3>Default Settings</h3>
+    <ul id="gallery1">
+      <li><img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal3" title="image 1" /></li>
+      <li><img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal6" /></li>
+      <li><img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal8" title="image 3" /></li>
+      <li><img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal2" title="image 4" /></li>
+      <li><img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal7" title="image 5" /></li>
+      <li><img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal9" title="image 6" /></li>
+      <li><img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal1" title="image 7" /></li>
+      <li><img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal4" title="image 8" /></li>
+    </ul>
+  </div>
+  <div class="tab html">
+    <pre><code class="html">
+      &lt;ul id="gallery"&gt; 
+        &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal3" title="image 1" /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal6" /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal8" title="image 3" /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal2" title="image 4" /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal7" title="image 5" /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal9" title="image 6" /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal1" title="image 7" /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal4" title="image 8" /&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </code></pre>
+  </div>
+  <div class="tab js">
+    <pre><code class="javascript">
+    $('#gallery').flowgallery({
+      easing: 'easeOutCubic'
+    });
+    </code></pre>
+  </div>
+</div><!-- .section -->
+
+<script type="text/javascript" charset="utf-8">
+  //$(function() {
+    // initialize with basic config options
+    //$('#gallery1').flowgallery({
+    //  easing: 'easeOutCubic'
+    //});
+  //});
+</script>
+
     </div><!-- #content -->
 
-
-    <!-- JavaScript at the bottom for fast page loading -->
-
+    
     <script src="js/spin.min.js" type="text/javascript"></script>
-    <script type="text/javascript" charset="utf-8">
-      
-  var spinOpts = {
-    lines: 8, // The number of lines to draw
-    length: 30, // The length of each line
-    width: 7, // The line thickness
-    radius: 22, // The radius of the inner circle
-    color: '#ddd', // #rgb or #rrggbb
-    speed: 1.3, // Rounds per second
-    trail: 60, // Afterglow percentage
-    shadow: false, // Whether to render a shadow
-    hwaccel: true // Whether to use hardware acceleration
-  };
-  var target = document.getElementById('content');
-  var spinner = new Spinner(spinOpts).spin(target);
-    </script>
+    <script src="js/signals.min.js" type="text/javascript"></script>
+    <script src="js/hasher.min.js" type="text/javascript"></script>
 
     <!-- include jQuery - remote from CDN or get local fallback -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -81,6 +176,6 @@
     <!-- initialize gallery -->
     <script src="js/script.js" type="text/javascript"></script>
 
+
   </body>
 </html>
-

@@ -40,6 +40,7 @@
           $($elem).find('.active').removeClass('active');
           $(this).addClass('active');
           $tab.addClass('active').siblings().removeClass('active');
+          return false;
         });
       });
     };
