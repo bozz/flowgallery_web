@@ -25,7 +25,7 @@ $(function() {
     shadow: false, // Whether to render a shadow
     hwaccel: true // Whether to use hardware acceleration
   };
-  var contentElem = document.getElementById('content');
+  var contentElem = document.getElementById('demo-sections');
   var spinner = new Spinner(spinOpts).spin(contentElem);
   spinner.stop();
 
@@ -39,7 +39,7 @@ $(function() {
 
 
   function loadContent(url) {
-    //spinner.spin();
+    spinner.spin();
     //if(url.charAt(url.length-1) === '#') {
       //$('#content .section').hide();
       //return;
@@ -51,11 +51,12 @@ $(function() {
       dataType: 'html',
       cache: false,
       success: function(html){
-        $('#content > div.active').removeClass('active');
-        $("#content").append(html);
+        $('#demo-sections div.active').removeClass('active');
+        $("#demo-sections").append(html);
         spinner.stop();
         initSection();
-        $('#content > div.active').fadeIn('slow');
+        $('#demo-sections div.active').fadeIn('slow');
+        $('#nav a[href=#demos]').click();
       }
     });
   }
@@ -69,8 +70,38 @@ $(function() {
     });
   }
 
+  // copied from http://stasis.me
+  function smoothScroll() {
+    return $('#nav a[href*=#]').click(function() {
+      var anchor, ran, target;
+      anchor = $(this).attr('href').match(/#(.*)/)[1];
+      target = $('a[name=' + anchor + ']');
+      ran = false;
+      $('html, body').animate({
+        scrollTop: target.offset().top - 60
+      }, 400, function() {
+        var offset;
+        if (!ran) {
+          offset = this.scrollTop;
+          location.hash = anchor;
+          this.scrollTop = offset;
+        }
+        return ran = true;
+      });
+      return false;
+    });
+  }
+
   // init start page
   initSection();
+  smoothScroll();
+
+  $('#demo-selector').dropkick({
+    change: function (value, label) {
+      //alert('You picked: ' + label + ':' + value);
+      loadContent('demos/' + value + '.html');
+    }
+  });
 
   $('#gallery1').flowgallery({
     easing: 'easeOutCubic'

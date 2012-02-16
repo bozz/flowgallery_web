@@ -1,6 +1,6 @@
 html,
 body {
-  background: #49423D;
+  background: #ddd;
   margin: 0;
   padding: 0;
 }
@@ -13,8 +13,7 @@ body {
 a,
 a:active,
 a:visited {
-  color: #cc0000;
-  /*text-decoration: none;*/
+  color: #333;
 }
 a:hover {
   color: #111;
@@ -23,6 +22,8 @@ a:hover {
 
 ul {
   list-style: none;
+  margin: 0;
+  padding-left: 0;
 }
 
 .clearfix {
@@ -48,8 +49,7 @@ ul {
 }
 
 
-#header,
-ul.topnav,
+#nav ul,
 #content,
 #footer {
   margin: 0 auto;
@@ -59,51 +59,25 @@ ul.topnav,
 /** Header **/
 
 #header {
-  /*background-color: #C4C4C4;*/
-
-  /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#999999');*/
-  /*background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#999));*/
-  /*background: -moz-linear-gradient(top,  #ccc,  #999);*/
-
+  background: #49423D;
+  height: 80px;
   padding-top: 1px;
 }
-
 h1 {
   color: #ccc;
   font: 30px/38px 'DanielRegular', Arial, sans-serif;
   letter-spacing: 2px;
-  float: left;
-  /* margin: 0 auto 25px;
-  text-align: center; */
-  margin: 20px 30px 20px 50px;
+  margin: 20px auto;
+  max-width: 1000px;
 }
-#header h2 {
+#header h1 span {
   color: #bbb;
-  float: left;
+  font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif;
   font-size: 16px;
   font-weight: normal;
-  margin: 33px 0 0;
+  letter-spacing: 0;
 }
 
-
-/** Navigation Drop-Down Menu */
-
-#nav {
-  background: #CFBE27;
-  /*margin-bottom: 50px;*/
-  /*background: #40866A;*/
-  /*padding-left: 50px;*/
-  -moz-box-shadow: 0 -1px 25px #444;
-  -webkit-box-shadow: 0 -1px 25px #444;
-  box-shadow: 0 -1px 25px #444;
-  height: 35px;
-  width: 100%;
-  z-index: 9999;
-}
-.fixed {
-  position: fixed;
-  top: 0;
-}
 #github-link {
   position: fixed;
   right: 0;
@@ -111,39 +85,44 @@ h1 {
   z-index: 99999;
 }
 
-ul.topnav {
-  list-style: none;
-  padding: 0 0 0 80px;
+/** Navigation Drop-Down Menu */
+
+#nav {
+  background: #CFBE27;
+  -moz-box-shadow: 0 -1px 25px #444;
+  -webkit-box-shadow: 0 -1px 25px #444;
+  box-shadow: 0 -1px 25px #444;
+  height: 30px;
+  width: 100%;
+  z-index: 9999;
+}
+.fixed {
+  position: fixed;
+  top: 0;
+}
+#nav ul {
+  padding: 0;
   font-size: 16px;
 }
-ul.topnav li {
-  /*background: #BCBDAC;*/
-  /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');*/
-  /*background: -webkit-gradient(linear, left top, left bottom, from(#A76939), to(#A03622));*/
-  /*background: -moz-linear-gradient(top,  #A76939,  #AB5234);*/
-  /*border: 1px solid #333;*/
-  /*-moz-border-radius: 5px;*/
-  /*border-radius: 5px;*/
-  /*border-left: 3px solid #ccc;*/
-  /*border-right: 3px solid #ccc;*/
+#nav ul li {
   float: left;
   margin: 0 15px 0 0;
-  padding: 0 20px 0 5px;
+  padding: 0 20px 0 0;
   position: relative; /*--Declare X and Y axis base for sub navigation--*/
 }
-ul.topnav li a {
-  padding: 10px 5px;
+#nav a {
+  padding: 5px 0;
   color: #444;
   display: block;
-  /*text-decoration: none;*/
-  float: left;
+  text-decoration: none;
+  /*float: left;*/
 }
-ul.topnav li a:hover{
+#nav a:hover{
   color: #000;
   text-decoration: underline;
 }
 
-ul.topnav li span { /*--Drop down trigger styles--*/
+#nav ul li span { /*--Drop down trigger styles--*/
   width: 17px;
   height: 39px;
   position: absolute;
@@ -152,12 +131,11 @@ ul.topnav li span { /*--Drop down trigger styles--*/
   /*float: left;*/
   background: url(../images/arrow_down.png) no-repeat center center;
 }
-ul.topnav li span.subhover {
+#nav ul li span.subhover {
   /*background-position: center bottom; */
   cursor: pointer;
 } /*--Hover effect for trigger--*/
-
-ul.topnav li ul.subnav {
+#nav ul li ul.subnav {
   list-style: none;
   position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
   left: 0; top: 39px;
@@ -170,20 +148,20 @@ ul.topnav li ul.subnav {
   float: left;
   width: 170px;
 }
-ul.topnav li ul.subhovernav li{
+#nav ul li ul.subhovernav li{
   margin: 0; padding: 0;
   border-top: 1px solid #252525; /*--Create bevel effect--*/
   border-bottom: 1px solid #444; /*--Create bevel effectffect--*/
   clear: both;
   width: 170px;
 }
-html ul.topnav li ul.subnav list a {
+#nav ul li ul.subnav a {
   float: left;
   width: 145px;
   /*background: #333 url(dropdown_linkbg.gif) no-repeat 10px center;*/
   padding-left: 20px;
 }
-html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
+#nav ul li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
   /*background: #222 url(dropdown_linkbg.gif) no-repeat 10px center;*/
 }
 
@@ -191,23 +169,33 @@ html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
 /** Content **/
 
 #content {
-  min-height: 300px;
+  padding: 30px 0 50px;
 }
 #content.fixed-nav {
-  margin-top: 65px;
+  margin-top: 30px;
 }
-#content .section {
-  /*display: none;*/
-  padding-top: 30px;
+
+h2 {
+  margin: 30px 0 10px;
 }
-#demos {
-  background: #ddd;
-  padding-top: 20px;
+h2 a {
+  color: #333;
 }
-#demos > h3 {
-  margin: 0 25px;
+h2 a:hover {
+  color: #333;
+  text-decoration: none;
 }
-#demos div.section h3 {
+label {
+  float: left;
+  margin: 6px 15px 0 0;
+}
+
+#demo-sections {
+  clear: both;
+  padding-top: 10px;
+  min-height: 300px;
+}
+#demo-sections h3 {
   text-align: center;
 }
 
@@ -217,14 +205,14 @@ ul.tab-bar {
 }
 ul.tab-bar li {
   float: left;
-  padding: 10px 10px;
+  padding: 10px 0;
+  margin-right: 20px;
 }
 ul.tab-bar a {
   background-color: #999;
   color: #555;
   padding: 10px 25px;
 }
-#content div.documentation div.active,
 ul.tab-bar a {
   -moz-border-radius-topleft: 5px;
   -moz-border-radius-topright: 5px;
@@ -240,30 +228,26 @@ ul.tab-bar a.active {
 ul.tab-bar a:hover {
   color: #000;
 }
+#demo-sections .section,
 #content div.tab {
   display: none;
 }
+#demo-sections div.section.active {
+  display: block;
+}
 #content div.tab.active {
   display: block;
-  background-color: #ddd;
-  /*-moz-border-radius: 5px;*/
-  /*border-radius: 5px;*/
-  /*-moz-box-shadow: 0 -1px 15px #555;*/
-  /*-webkit-box-shadow: 0 -1px 15px #555;*/
-  /*box-shadow: 0 -1px 15px #555;*/
-  margin: 0;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin: -1px 0 0;
   padding: 15px 25px;
 }
-#demos ul.tab-bar a.active,
-#demos div.tab.active {
+#demo-sections ul.tab-bar a.active,
+#demo-sections div.tab.active {
   background-color: #807B73;
 }
-#demos div.tab.demo {
+#demo-sections div.tab.demo {
   padding: 15px 0;
-}
-#content h3 {
-  font-size: 18px;
-  /*text-align: center;*/
 }
 
 pre code {
@@ -275,11 +259,6 @@ pre code {
 /* Footer */
 
 #footer {
-  background-color: #ddd;
-  -moz-border-radius-bottomleft: 5px;
-  -moz-border-radius-bottomright: 5px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
   font-size: 0.9em;
   margin-bottom: 50px;
   padding: 8px 0;

@@ -1,17 +1,8 @@
-<div class="section documentation">
-  <ul class="tab-bar clearfix">
-    <li><a class="active" href="#docs">Documentation</a></li>
-    <li><a href="#config">Config Options</a></li>
-  </ul>
-  <div class="tab docs active">
-    <h3>Documentation</h3>
-    jQuery plugin for image galleries with a cover flow effect.
+<h2><a name="documentation">Documentation</a></h2>
+jQuery plugin for image galleries with a cover flow effect.
 
-    Demo: "http://lucidgardens.com/flowgallery":http://lucidgardens.com/lab/flowgallery
-
-    <h3>Usage</h3>
-
-    The required markup for the image gallery is a simple unordered list of images:
+<h2><a name="usage">Usage</a></h2>
+The required markup for the image gallery is a simple unordered list of images:
 
 <pre><code class="html">
 &lt;ul id="gallery"&gt;
@@ -24,7 +15,7 @@
 &lt;/ul&gt;
 </code></pre>
 
-    For basic usage, select the appropriate list and initialize as follows: 
+For basic usage, select the appropriate list and initialize as follows: 
 
 <pre><code class="javascript">
 $("#gallery").flowGallery({
@@ -32,36 +23,44 @@ $("#gallery").flowGallery({
   imagePadding: 6
 });
 </code></pre>
-    The gallery works best if full width of browser window can be used. No direct CSS styling of gallery list required, the plugin sets everything up as needed. Be careful if you do any CSS styling of the list, this could break functionality.
-
-    The only CSS styling needed, is for the loading image as specified by the 'loadingClass' attribute. Here is an example, adjust accordingly:
+The gallery works best if full width of browser window can be used. No direct CSS styling of gallery list required, the plugin sets everything up as needed. Be careful if you do any CSS styling of the list, this could break functionality.
+The only CSS styling needed, is for the loading image as specified by the 'loadingClass' attribute. Here is an example, adjust accordingly:
 
 <pre><code class="css">
 #gallery li.loading {
   background: url(../images/spinner.gif) no-repeat center center;
 }
 </code></pre>
-    </div>
 
-    <div class="tab config">
-      <h3>Config Options</h3>
-      <ul>
-        <li>activeIndex - (integer) the index of the image that should initially be loaded as active, default: @0@</li>
-        <li>animate - (boolean) should the image transitions be animated, default: @true@</li>
-        <li>enableKeyNavigation - (boolean) specifies if arrow keys (left and right) can be used for navigation, default: @true@</li>
-        <li>forwardOnActiveClick - (boolean) specifies if next image should be shown when clicking on active image, default: @false@</li>
-        <li>forceWidth - (false | integer) if specified, sets all images to this width, default: @false@</li>
-        <li>forceHeight - (false | integer) if specified, sets all images to this height, default: @false@</li>
-        <li>backgroundColor - (string) the background color of the border and caption, default: @"black"@</li>
-        <li>thumbWidth - ('auto' | integer) the width of the image thumbnails or 'auto', calculated based on aspect ratio from thumbHeight (value set to 100px if both thumbWidth and thumbHeight are set to 'auto'), default: @"auto"@</li>
-        <li>thumbHeight - ('auto' | integer) the height of image thumbnails or 'auto', calculated based on aspect ratio from thumbWidth, default: @"auto"@</li>
-        <li>thumbTopOffset - ('auto'|integer) the top offset of all thumbnails or 'auto' to center based on initial active image, default: @"auto"@</li>
-        <li>imagePadding - (integer) the visible border around active images, default: @4@</li>
-        <li>thumbPadding - (integer) the visible border around thumbnails, default: @3@</li>
-        <li>loadingClass - (string) CSS class applied to &lt;li&gt; elements while image is loading, should be used to specify background loading image, default: @"loading"@</li>
-        <li>easing - (string) easing method to use for animation, default: @"linear"@</li>
-        <li>duration - (string|integer) duration setting for animations, default: @900@</li>
-      </ul>
+<h2><a name="config_options">Config Options</a></h2>
+<ul>
+  <li>activeIndex - (integer) the index of the image that should initially be loaded as active, default: @0@</li>
+  <li>animate - (boolean) should the image transitions be animated, default: @true@</li>
+  <li>enableKeyNavigation - (boolean) specifies if arrow keys (left and right) can be used for navigation, default: @true@</li>
+  <li>forwardOnActiveClick - (boolean) specifies if next image should be shown when clicking on active image, default: @false@</li>
+  <li>forceWidth - (false | integer) if specified, sets all images to this width, default: @false@</li>
+  <li>forceHeight - (false | integer) if specified, sets all images to this height, default: @false@</li>
+  <li>backgroundColor - (string) the background color of the border and caption, default: @"black"@</li>
+  <li>thumbWidth - ('auto' | integer) the width of the image thumbnails or 'auto', calculated based on aspect ratio from thumbHeight (value set to 100px if both thumbWidth and thumbHeight are set to 'auto'), default: @"auto"@</li>
+  <li>thumbHeight - ('auto' | integer) the height of image thumbnails or 'auto', calculated based on aspect ratio from thumbWidth, default: @"auto"@</li>
+  <li>thumbTopOffset - ('auto'|integer) the top offset of all thumbnails or 'auto' to center based on initial active image, default: @"auto"@</li>
+  <li>imagePadding - (integer) the visible border around active images, default: @4@</li>
+  <li>thumbPadding - (integer) the visible border around thumbnails, default: @3@</li>
+  <li>loadingClass - (string) CSS class applied to &lt;li&gt; elements while image is loading, should be used to specify background loading image, default: @"loading"@</li>
+  <li>easing - (string) easing method to use for animation, default: @"linear"@</li>
+  <li>duration - (string|integer) duration setting for animations, default: @900@</li>
+</ul>
 
-    </div>
-  </div>
+<h2><a name="api">API</a></h2>
+<ul>
+  <li>next: move to next image</li>
+  <li>prev: move to previous image</li>
+</ul>
+
+<h2><a name="demos">Demos</a></h2>
+<label for="demo-selector">Select a demo:</label>
+<select id="demo-selector" name="demo-selector">
+  <option value="_default_settings">Default Settings</option>
+  <option value="_equal_sizes">Equal Image Sizes / No Scaling</option>
+  <option value="_scripting_gallery">Scripting Gallery</option>
+</select>
