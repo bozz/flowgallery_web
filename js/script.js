@@ -1,7 +1,8 @@
 $(function() {
-  var theLoc = $('#nav').position().top;
+  // init 'floating' nav
+  var navBar = $('#nav').position().top;
   $(window).scroll(function() {
-    if(theLoc >= $(window).scrollTop()) {
+    if(navBar >= $(window).scrollTop()) {
       if($('#nav').hasClass('fixed')) {
         $('#nav').removeClass('fixed');
         $('#content').removeClass('fixed-nav');
@@ -38,24 +39,19 @@ $(function() {
   $('ul.topnav').dropit();
 
 
-  function loadContent(url) {
+  function loadContent(url, cacheKey) {
     spinner.spin();
-    //if(url.charAt(url.length-1) === '#') {
-      //$('#content .section').hide();
-      //return;
-    //}
-    //$('#content').addClass('loading');
 
     $.ajax({
       url: url,
       dataType: 'html',
       cache: false,
       success: function(html){
-        $('#demo-sections div.active').removeClass('active');
+        $('#demo-sections > div.active').removeClass('active');
         $("#demo-sections").append(html);
         spinner.stop();
         initSection();
-        $('#demo-sections div.active').fadeIn('slow');
+        sectionCache[cacheKey] = $('#demo-sections > div.active').fadeIn('slow').first();
         $('#nav a[href=#demos]').click();
       }
     });
@@ -86,7 +82,8 @@ $(function() {
           location.hash = anchor;
           this.scrollTop = offset;
         }
-        return ran = true;
+        ran = true;
+        return ran;
       });
       return false;
     });
@@ -99,11 +96,20 @@ $(function() {
   $('#demo-selector').dropkick({
     change: function (value, label) {
       //alert('You picked: ' + label + ':' + value);
-      loadContent('demos/' + value + '.html');
+      if(sectionCache[value]) {
+        $('#demo-sections > div').hide();
+        sectionCache[value].fadeIn('slow');
+        $('#nav a[href=#demos]').click();
+      } else {
+        loadContent('demos/_' + value + '.html', value);
+      }
     }
   });
 
   $('#gallery1').flowgallery({
     easing: 'easeOutCubic'
   });
+
+  // init sectionCache with initial demo
+  sectionCache.default_settings = $('#demo-sections > div.active').first();
 });
