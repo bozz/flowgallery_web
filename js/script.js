@@ -20,7 +20,7 @@ $(function() {
     length: 30, // The length of each line
     width: 7, // The line thickness
     radius: 22, // The radius of the inner circle
-    color: '#ddd', // #rgb or #rrggbb
+    color: '#000', // #rgb or #rrggbb
     speed: 1.3, // Rounds per second
     trail: 60, // Afterglow percentage
     shadow: false, // Whether to render a shadow
@@ -30,28 +30,33 @@ $(function() {
   var spinner = new Spinner(spinOpts).spin(contentElem);
   spinner.stop();
 
-
   // cache for loaded sections, contains
   // key/value with hash/section
   var sectionCache = {};
+
+  // sectionCache key of active section
+  var activeSectionKey = null;
 
   // init main drop-down menu
   $('ul.topnav').dropit();
 
 
   function loadContent(url, cacheKey) {
-    spinner.spin();
+    $('#demo-sections > div.section').hide();
+    spinner.spin(contentElem);
 
     $.ajax({
       url: url,
       dataType: 'html',
       cache: false,
       success: function(html){
-        $('#demo-sections > div.active').removeClass('active');
-        $("#demo-sections").append(html);
+        var $newSection = $(html);
+        $("#demo-sections").append($newSection);
         spinner.stop();
         initSection();
-        sectionCache[cacheKey] = $('#demo-sections > div.active').fadeIn('slow').first();
+        activeSectionKey = cacheKey;
+        sectionCache[cacheKey] = $newSection; 
+        $newSection.fadeIn('slow');
         $('#nav a[href=#demos]').click();
       }
     });
@@ -89,16 +94,28 @@ $(function() {
     });
   }
 
+  function setGalleriesEnabled(enabled) {
+    if(activeSectionKey && sectionCache[activeSectionKey]) {
+      sectionCache[activeSectionKey].find('div.demo ul').each(function(i) {
+        var flowgallery = $(this).data('flowgallery');
+        flowgallery[enabled ? 'enable' : 'disable']();
+      });
+    }
+  }
+
   // init start page
   initSection();
   smoothScroll();
 
   $('#demo-selector').dropkick({
     change: function (value, label) {
-      //alert('You picked: ' + label + ':' + value);
+      setGalleriesEnabled(false);
       if(sectionCache[value]) {
-        $('#demo-sections > div').hide();
+        $('#demo-sections > div.section').hide();
         sectionCache[value].fadeIn('slow');
+
+        activeSectionKey = value;
+        setGalleriesEnabled(true);
         $('#nav a[href=#demos]').click();
       } else {
         loadContent('demos/_' + value + '.html', value);
@@ -111,5 +128,6 @@ $(function() {
   });
 
   // init sectionCache with initial demo
-  sectionCache.default_settings = $('#demo-sections > div.active').first();
+  activeSectionKey = 'default_settings';
+  sectionCache[activeSectionKey] = $('#demo-sections > div.section').first();
 });
