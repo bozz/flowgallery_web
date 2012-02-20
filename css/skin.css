@@ -190,6 +190,29 @@ label {
   margin: 6px 15px 0 0;
 }
 
+#config-options th {
+  padding: 5px 15px;
+  text-align: left;
+}
+#config-options td {
+  background-color: whiteSmoke;
+  padding: 5px 15px;
+}
+#config-options tr {
+  border-bottom: 1px solid #ddd;
+}
+#config-options td.key {
+  background-color: whiteSmoke;
+  font-family: monospace, serif;
+  font-style: normal;
+}
+#config-options td.meta {
+  background-color: #bbb;
+  font-family: monospace, serif;
+  font-style: normal;
+  width: 270px;
+}
+
 #demo-sections {
   clear: both;
   padding-top: 10px;

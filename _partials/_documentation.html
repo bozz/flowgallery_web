@@ -33,23 +33,88 @@ The only CSS styling needed, is for the loading image as specified by the 'loadi
 </code></pre>
 
 <h2><a name="config_options">Config Options</a></h2>
-<ul>
-  <li>activeIndex - (integer) the index of the image that should initially be loaded as active, default: @0@</li>
-  <li>animate - (boolean) should the image transitions be animated, default: @true@</li>
-  <li>enableKeyNavigation - (boolean) specifies if arrow keys (left and right) can be used for navigation, default: @true@</li>
-  <li>forwardOnActiveClick - (boolean) specifies if next image should be shown when clicking on active image, default: @false@</li>
-  <li>forceWidth - (false | integer) if specified, sets all images to this width, default: @false@</li>
-  <li>forceHeight - (false | integer) if specified, sets all images to this height, default: @false@</li>
-  <li>backgroundColor - (string) the background color of the border and caption, default: @"black"@</li>
-  <li>thumbWidth - ('auto' | integer) the width of the image thumbnails or 'auto', calculated based on aspect ratio from thumbHeight (value set to 100px if both thumbWidth and thumbHeight are set to 'auto'), default: @"auto"@</li>
-  <li>thumbHeight - ('auto' | integer) the height of image thumbnails or 'auto', calculated based on aspect ratio from thumbWidth, default: @"auto"@</li>
-  <li>thumbTopOffset - ('auto'|integer) the top offset of all thumbnails or 'auto' to center based on initial active image, default: @"auto"@</li>
-  <li>imagePadding - (integer) the visible border around active images, default: @4@</li>
-  <li>thumbPadding - (integer) the visible border around thumbnails, default: @3@</li>
-  <li>loadingClass - (string) CSS class applied to &lt;li&gt; elements while image is loading, should be used to specify background loading image, default: @"loading"@</li>
-  <li>easing - (string) easing method to use for animation, default: @"linear"@</li>
-  <li>duration - (string|integer) duration setting for animations, default: @900@</li>
-</ul>
+<table id="config-options">
+  <tr>
+    <th>Property</th>
+    <th>Type / Default</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td class="key">activeIndex</td>
+    <td class="meta">integer (default: 0)</td>
+    <td>the index of the image that should initially be loaded as active</td>
+  </tr>
+  <tr>
+    <td class="key">animate</td>
+    <td class="meta">boolean (default: true)</td>
+    <td>should the image transitions be animated</td>
+  </tr>
+  <tr>
+    <td class="key">backgroundColor</td>
+    <td class="meta">string (default: "black")</td>
+    <td>the background color of the border and caption</td>
+  </tr>
+  <tr>
+    <td class="key">duration</td>
+    <td class="meta">string|integer (default: 900)</td>
+    <td>duration setting for animations</td>
+  </tr>
+  <tr>
+    <td class="key">easing</td>
+    <td class="meta">string (default: "linear")</td>
+    <td>easing method to use for animation</td>
+  </tr>
+  <tr>
+    <td class="key">enableKeyNavigation</td>
+    <td class="meta">boolean (default: true)</td>
+    <td>specifies if arrow keys (left and right) can be used for navigation</td>
+  </tr>
+  <tr>
+    <td class="key">forceHeight</td>
+    <td class="meta">false|integer (default: false)</td>
+    <td>if specified, sets all images to this height</td>
+  </tr>
+  <tr>
+    <td class="key">forceWidth</td>
+    <td class="meta">false|integer (default: false)</td>
+    <td>if specified, sets all images to this width</td>
+  </tr>
+  <tr>
+    <td class="key">forwardOnActiveClick</td>
+    <td class="meta">boolean (default: false)</td>
+    <td>specifies if next image should be shown when clicking on active image</td>
+  </tr>
+  <tr>
+    <td class="key">imagePadding</td>
+    <td class="meta">integer (default: 4)</td>
+    <td>the visible border around active images</td>
+  </tr>
+  <tr>
+    <td class="key">loadingClass</td>
+    <td class="meta">string (default: "loading")</td>
+    <td>CSS class applied to &lt;li&gt; elements while image is loading, should be used to specify background loading image</td>
+  </tr>
+  <tr>
+    <td class="key">thumbHeight</td>
+    <td class="meta">"auto"|integer (default: "auto")</td>
+    <td>the height of image thumbnails or 'auto', calculated based on aspect ratio from thumbWidth</td>
+  </tr>
+  <tr>
+    <td class="key">thumbPadding</td>
+    <td class="meta">integer (default: 3)</td>
+    <td>the visible border around thumbnails</td>
+  </tr>
+  <tr>
+    <td class="key">thumbTopOffset</td>
+    <td class="meta">"auto"|integer (default: "auto")</td>
+    <td>the top offset of all thumbnails or 'auto' to center based on initial active image</td>
+  </tr>
+  <tr>
+    <td class="key">thumbWidth</td>
+    <td class="meta">"auto"|integer (default: "auto")</td>
+    <td>the width of the image thumbnails or 'auto', calculated based on aspect ratio from thumbHeight (value set to 100px if both thumbWidth and thumbHeight are set to 'auto')</td>
+  </tr>
+</table>
 
 <h2><a name="api">API</a></h2>
 <ul>
