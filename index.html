@@ -155,17 +155,55 @@ The only CSS styling needed, is for the loading image as specified by the 'loadi
 </table>
 
 <h2><a name="api">API</a></h2>
-<ul>
-  <li>next: move to next image</li>
-  <li>prev: move to previous image</li>
-</ul>
+<table id="api-table">
+  <tr>
+    <th>Method</th>
+    <th>Returns</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td class="key">disable()</td>
+    <td class="meta">FlowGalleryApi</td>
+    <td>disable gallery, disable any event listeners; useful when hiding gallery</td>
+  </tr>
+  <tr>
+    <td class="key">enable()</td>
+    <td class="meta">FlowGalleryApi</td>
+    <td>enable gallery</td>
+  </tr>
+  <tr>
+    <td class="key">getLength()</td>
+    <td class="meta">number</td>
+    <td>get number of images in gallery</td>
+  </tr>
+  <tr>
+    <td class="key">getOptions()</td>
+    <td class="meta">Object</td>
+    <td>get current configuration options of gallery - these are the passed options merged with the defaults</td>
+  </tr>
+  <tr>
+    <td class="key">goto(index)</td>
+    <td class="meta">FlowGalleryApi</td>
+    <td>move to image with specified index</td>
+  </tr>
+  <tr>
+    <td class="key">next()</td>
+    <td class="meta">FlowGalleryApi</td>
+    <td>move to next image</td>
+  </tr>
+  <tr>
+    <td class="key">prev()</td>
+    <td class="meta">FlowGalleryApi</td>
+    <td>move to previous image</td>
+  </tr>
+</table>
 
 <h2><a name="demos">Demos</a></h2>
 <label for="demo-selector">Select a demo:</label>
 <select id="demo-selector" name="demo-selector">
   <option value="default_settings">Default Settings</option>
   <option value="equal_sizes">Equal Image Sizes / No Scaling</option>
-  <option value="scripting_gallery">Scripting Gallery</option>
+  <option value="basic_scripting">Scripting Gallery</option>
 </select>
 
       <div id="demo-sections">

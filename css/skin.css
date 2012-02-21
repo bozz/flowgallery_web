@@ -190,28 +190,37 @@ label {
   margin: 6px 15px 0 0;
 }
 
+#api-table {
+  width: 100%;
+}
+#api-table th,
 #config-options th {
   padding: 5px 15px;
   text-align: left;
 }
+#api-table td,
 #config-options td {
   background-color: whiteSmoke;
   padding: 5px 15px;
 }
+#api-table tr,
 #config-options tr {
   border-bottom: 1px solid #ddd;
 }
+#api-table td.key,
 #config-options td.key {
   background-color: whiteSmoke;
   font-family: monospace, serif;
   font-style: normal;
 }
+#api-table td.meta,
 #config-options td.meta {
   background-color: #bbb;
   font-family: monospace, serif;
   font-style: normal;
   width: 270px;
 }
+
 
 #demo-sections {
   clear: both;
