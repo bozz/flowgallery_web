@@ -36,11 +36,15 @@
     </div><!-- #nav -->
 
     <div id="content">
-      <h2><a name="documentation">Documentation</a></h2>
-jQuery plugin for image galleries with a cover flow effect.
+      <h2><a name="documentation">Introduction</a></h2>
+flowgallery.js is a robust and versatile image gallery. Works well with images of different sizes (i.e. mixed landscape and portrait) or same sized images.
+
+<h2>Dependencies</h2>
+required: <a href="http://jquery.com">jQuery</a> (tested with v1.4+).<br />
+optional: <a href="http://gsgd.co.uk/sandbox/jquery/easing/">jQuery Easing Plugin</a> (recommended, for nicer animations).
 
 <h2><a name="usage">Usage</a></h2>
-The required markup for the image gallery is a simple unordered list of images:
+The required markup for the image gallery is a simple unordered list of images. Any text set in the "title" attribute of the image will be displayed in a caption below the image.
 
 <pre><code class="html">
 &lt;ul id="gallery"&gt;
@@ -53,20 +57,27 @@ The required markup for the image gallery is a simple unordered list of images:
 &lt;/ul&gt;
 </code></pre>
 
-For basic usage, select the appropriate list and initialize as follows: 
+For basic usage, select the appropriate list and initialize as follows:
 
 <pre><code class="javascript">
-$("#gallery").flowGallery({
-  easing: 'easeOutCubic',
-  imagePadding: 6
-});
+$("#gallery").flowGallery();
 </code></pre>
+
+Per default active images will be displayed at their full size and all others in a scaled down version.
+
+
 The gallery works best if full width of browser window can be used. No direct CSS styling of gallery list required, the plugin sets everything up as needed. Be careful if you do any CSS styling of the list, this could break functionality.
 The only CSS styling needed, is for the loading image as specified by the 'loadingClass' attribute. Here is an example, adjust accordingly:
 
 <pre><code class="css">
+#gallery {
+  visibility: hidden;
+}
 #gallery li.loading {
   background: url(../images/spinner.gif) no-repeat center center;
+}
+#gallery p.fg-caption {
+  ...
 }
 </code></pre>
 
@@ -74,82 +85,110 @@ The only CSS styling needed, is for the loading image as specified by the 'loadi
 <table id="config-options">
   <tr>
     <th>Property</th>
-    <th>Type / Default</th>
+    <th>Type</th>
+    <th>Default</th>
     <th>Description</th>
   </tr>
   <tr>
     <td class="key">activeIndex</td>
-    <td class="meta">integer (default: 0)</td>
+    <td class="meta">integer</td>
+    <td class="meta">0</td>
     <td>the index of the image that should initially be loaded as active</td>
   </tr>
   <tr>
     <td class="key">animate</td>
-    <td class="meta">boolean (default: true)</td>
+    <td class="meta">boolean</td>
+    <td class="meta">true</td>
     <td>should the image transitions be animated</td>
   </tr>
   <tr>
     <td class="key">backgroundColor</td>
-    <td class="meta">string (default: "black")</td>
+    <td class="meta">string</td>
+    <td class="meta">"black"</td>
     <td>the background color of the border and caption</td>
   </tr>
   <tr>
     <td class="key">duration</td>
-    <td class="meta">string|integer (default: 900)</td>
+    <td class="meta">integer</td>
+    <td class="meta">900</td>
     <td>duration setting for animations</td>
   </tr>
   <tr>
     <td class="key">easing</td>
-    <td class="meta">string (default: "linear")</td>
+    <td class="meta">string</td>
+    <td class="meta">"linear"</td>
     <td>easing method to use for animation</td>
   </tr>
   <tr>
     <td class="key">enableKeyNavigation</td>
-    <td class="meta">boolean (default: true)</td>
+    <td class="meta">boolean</td>
+    <td class="meta">true</td>
     <td>specifies if arrow keys (left and right) can be used for navigation</td>
   </tr>
   <tr>
     <td class="key">forceHeight</td>
-    <td class="meta">false|integer (default: false)</td>
+    <td class="meta">false|integer</td>
+    <td class="meta">false</td>
     <td>if specified, sets all images to this height</td>
   </tr>
   <tr>
     <td class="key">forceWidth</td>
-    <td class="meta">false|integer (default: false)</td>
+    <td class="meta">false|integer</td>
+    <td class="meta">false</td>
     <td>if specified, sets all images to this width</td>
   </tr>
   <tr>
     <td class="key">forwardOnActiveClick</td>
-    <td class="meta">boolean (default: false)</td>
+    <td class="meta">boolean</td>
+    <td class="meta">false</td>
     <td>specifies if next image should be shown when clicking on active image</td>
   </tr>
   <tr>
     <td class="key">imagePadding</td>
-    <td class="meta">integer (default: 4)</td>
+    <td class="meta">integer</td>
+    <td class="meta">4</td>
     <td>the visible border around active images</td>
   </tr>
   <tr>
     <td class="key">loadingClass</td>
-    <td class="meta">string (default: "loading")</td>
+    <td class="meta">string</td>
+    <td class="meta">"loading"</td>
     <td>CSS class applied to &lt;li&gt; elements while image is loading, should be used to specify background loading image</td>
   </tr>
   <tr>
+    <td class="key">loadingHeight</td>
+    <td class="meta">integer</td>
+    <td class="meta">60</td>
+    <td>image width to use for placeholder image while loading if cannot be determined</td>
+  </tr>
+  <tr>
+    <td class="key">loadingWidth</td>
+    <td class="meta">integer</td>
+    <td class="meta">100</td>
+    <td>image height to use for placeholder image while loading if cannot be determined</td>
+  </tr>
+  <tr>
     <td class="key">thumbHeight</td>
-    <td class="meta">"auto"|integer (default: "auto")</td>
+    <td class="meta">"auto"|integer</td>
+    <td class="meta">"auto"</td>
     <td>the height of image thumbnails or 'auto', calculated based on aspect ratio from thumbWidth</td>
   </tr>
   <tr>
     <td class="key">thumbPadding</td>
-    <td class="meta">integer (default: 3)</td>
+    <td class="meta">integer</td>
+    <td class="meta">3</td>
     <td>the visible border around thumbnails</td>
   </tr>
   <tr>
     <td class="key">thumbTopOffset</td>
-    <td class="meta">"auto"|integer (default: "auto")</td>
+    <td class="meta">"auto"|integer</td>
+    <td class="meta">"auto"</td>
     <td>the top offset of all thumbnails or 'auto' to center based on initial active image</td>
   </tr>
   <tr>
     <td class="key">thumbWidth</td>
-    <td class="meta">"auto"|integer (default: "auto")</td>
+    <td class="meta">"auto"|integer</td>
+    <td class="meta">"auto"</td>
     <td>the width of the image thumbnails or 'auto', calculated based on aspect ratio from thumbHeight (value set to 100px if both thumbWidth and thumbHeight are set to 'auto')</td>
   </tr>
 </table>

@@ -218,7 +218,7 @@ label {
   background-color: #bbb;
   font-family: monospace, serif;
   font-style: normal;
-  width: 270px;
+  width: 130px;
 }
 
 
@@ -313,7 +313,7 @@ pre code {
 
 /* image caption */
 
-p.bf-caption {
+p.fg-caption {
   color: #999;
   font-size: 12px;
   font-weight: normal;
