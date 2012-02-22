@@ -96,6 +96,9 @@ $(function() {
         activeSectionKey = key;
         setGalleriesEnabled(true);
 
+        var flowgallery = sectionCache[key].find('div.demo ul').data('flowgallery');
+        flowgallery.goto(0, false);
+
         // refocus selected demo
         $('#nav a[href=#demos]').click();
       } else {
