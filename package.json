@@ -1,5 +1,6 @@
 {
   "name": "flowgallery_web",
+  "version": "0.1.0",
   "description": "website for flowgallery.js",
   "author": "Boris Searles <boris@lucidgardens.com>",
   "dependencies": {

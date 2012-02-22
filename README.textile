@@ -24,6 +24,7 @@ h2. build tasks
 There are currently two tasks available:
 
 @jake@ - this will update index.html with latest version of files in _partial directory
+@jake prod@ - this will create the production version of site in "_release" folder (with minified assets)
 @jake server@ - local server on port 8080, that allows loading the demos with ajax
 
 h2. todos
@@ -31,6 +32,5 @@ h2. todos
 Some things that are still missing:
 
 * more demos
-* build task for production - unify and compress assets
 * add watcher for file changes in _partials directory, to regenerate index.html automatically (while server running)
 * build task for creating separate single page demos (from fragments in "demos" folder) to be distributed with flowgallery.js download package

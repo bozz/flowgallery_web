@@ -6,10 +6,9 @@
     <title>flowgallery.js - a jQuery image gallery</title>
     <meta name="description" content="flowgallery.js jQuery plugin - image gallery based on cover flow effect." />
     <meta name="author" content="Boris Searles" />
-    <link rel="stylesheet" href="css/base.css" type="text/css" media="screen" charset="utf-8" />
-    <link rel="stylesheet" href="css/skin.css" type="text/css" media="screen" charset="utf-8" />
-    <link rel="stylesheet" href="js/dropkick/dropkick.css" type="text/css" media="screen" charset="utf-8" />
-    <link rel="stylesheet" href="js/highlight/solarized_dark.css" type="text/css" media="screen" charset="utf-8" />
+
+    {{assets:stylesheets}}
+
   </head>
   <body>
     <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -20,33 +19,25 @@
 
     <div id="nav" class="clearfix">
       <ul class="topnav">
-        <li><a href="#documentation">Documentation</a></li>
+        <li><a href="#introduction">Introduction</a></li>
         <li><a href="#usage">Usage</a></li>
         <li><a href="#config_options">Config Options</a></li>
         <li><a href="#api">API</a></li>
-        <li>
-          <a href="#demos">Demos</a>
-          <!--<ul class="subnav">-->
-            <!--<li><a href="#demos/default_settings.html">Default Settings</a></li>-->
-            <!--<li><a href="#demos/equal_sizes.html">Equal Sizes</a></li>-->
-          <!--</ul>-->
-        </li>
+        <li><a href="#demos">Demos</a></li>
+        <li><a href="#dependencies">Dependencies</a></li>
         <li><a href="#download">Download</a></li>
       </ul>
     </div><!-- #nav -->
 
     <div id="content">
-      {{_partials/_documentation.html}}
-      <div id="demo-sections">
-        {{demos/_default_settings.html}}
-      </div>
+      {{file:_partials/_content.html}}
     </div><!-- #content -->
 
     <div id="footer">
       Created by <a href="http://lucidgardens.com">Boris Searles</a>. Released under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT license</a>. | <a href="/privacy.html">Privacy Policy</a>
     </div>
 
-    {{_partials/_scripts.html}}
+    {{assets:javascripts}}
 
   </body>
 </html>
