@@ -5,6 +5,7 @@
   "author": "Boris Searles <boris@lucidgardens.com>",
   "dependencies": {
     "jake": ">= 0.1.x",
+    "mime": ">= 1.2.x",
     "uglify-js": ">= 1.2.x"
   },
   "engine": "node 0.6.x"
