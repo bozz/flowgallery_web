@@ -285,6 +285,7 @@ ul.tab-bar a:hover {
 pre code {
   -moz-border-radius: 5px;
   border-radius: 5px;
+  padding: 10px 15px;
 }
 
 

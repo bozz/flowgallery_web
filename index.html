@@ -40,8 +40,7 @@ flowgallery.js is a robust and versatile image gallery. Works well with images o
 <h2><a name="usage">Usage</a></h2>
 The required markup for the image gallery is a simple unordered list of images. Any text set in the "title" attribute of the image will be displayed in a caption below the image.
 
-<pre><code class="html">
-&lt;ul id="gallery"&gt;
+<pre><code>&lt;ul id="gallery"&gt;
   &lt;li&gt;&lt;img src="..." title="image caption text" alt="image" /&gt;&lt;/li&gt;
   &lt;li&gt;&lt;img src="..." title="image caption text" alt="image" /&gt;&lt;/li&gt;
   &lt;li&gt;&lt;img src="..." title="image caption text" alt="image" /&gt;&lt;/li&gt;
@@ -53,9 +52,7 @@ The required markup for the image gallery is a simple unordered list of images. 
 
 For basic usage, select the appropriate list and initialize as follows:
 
-<pre><code class="javascript">
-$("#gallery").flowGallery();
-</code></pre>
+<pre><code class="javascript">$("#gallery").flowGallery();</code></pre>
 
 Per default active images will be displayed at their full size and all others in a scaled down version.
 
@@ -63,8 +60,7 @@ Per default active images will be displayed at their full size and all others in
 The gallery works best if full width of browser window can be used. No direct CSS styling of gallery list required, the plugin sets everything up as needed. Be careful if you do any CSS styling of the list, this could break functionality.
 The only CSS styling needed, is for the loading image as specified by the 'loadingClass' attribute. Here is an example, adjust accordingly:
 
-<pre><code class="css">
-#gallery {
+<pre><code class="css">#gallery {
   visibility: hidden;
 }
 #gallery li.loading {
@@ -188,6 +184,13 @@ The only CSS styling needed, is for the loading image as specified by the 'loadi
 </table>
 
 <h2><a name="api">API</a></h2>
+
+The API object can be accessed through the "data" property using jQuery. This will return a API wrapper object "FlowGalleryApi" - this is used to interact with the gallery.
+
+<pre><code class="javascript">var flowgallery = $("#gallery").data('flowgallery');
+flowgallery.next();
+</code></pre>
+
 <table id="api-table">
   <tr>
     <th>Method</th>
@@ -260,25 +263,23 @@ The only CSS styling needed, is for the loading image as specified by the 'loadi
     </ul>
   </div>
   <div class="tab html">
-    <pre><code class="html">
-      &lt;ul id="gallery"&gt; 
-        &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal3" title="image 1" /&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal6" /&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal8" title="image 3" /&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal2" title="image 4" /&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal7" title="image 5" /&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal9" title="image 6" /&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal1" title="image 7" /&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal4" title="image 8" /&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </code></pre>
+<pre><code class="html">&lt;ul id="gallery"&gt; 
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal3" title="image 1" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal6" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal8" title="image 3" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal2" title="image 4" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal7" title="image 5" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal9" title="image 6" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal1" title="image 7" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal4" title="image 8" /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
   </div>
   <div class="tab js">
-    <pre><code class="javascript">
-    $('#gallery').flowgallery({
-      easing: 'easeOutCubic'
-    });
-    </code></pre>
+<pre><code class="javascript">$('#gallery').flowgallery({
+  easing: 'easeOutCubic'
+});
+</code></pre>
   </div>
 </div><!-- .section -->
 
