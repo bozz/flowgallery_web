@@ -7,18 +7,32 @@
   <div class="tab demo active">
     <h3>Equal Image Sizes / No Scaling</h3>
     <ul id="gallery2">
-      <li><img src="http://ima.gs/213435/fff/none/500x350.png" alt="fractal3" title="image 1" /></li>
-      <li><img src="http://ima.gs/46685B/fff/none/500x350.png" alt="fractal6" /></li>
-      <li><img src="http://ima.gs/648A64/fff/none/500x350.png" alt="fractal8" title="image 3" /></li>
-      <li><img src="http://ima.gs/A6B985/fff/none/500x350.png" alt="fractal2" title="image 4" /></li>
-      <li><img src="http://ima.gs/E1E3AC/fff/none/500x350.png" alt="fractal7" title="image 5" /></li>
+      <li><img src="http://ima.gs/213435/fff/none/500x350.png" alt="image 1" title="image 1" /></li>
+      <li><img src="http://ima.gs/46685B/fff/none/500x350.png" alt="image 2" /></li>
+      <li><img src="http://ima.gs/648A64/fff/none/500x350.png" alt="image 3" title="image 3" /></li>
+      <li><img src="http://ima.gs/A6B985/fff/none/500x350.png" alt="image 4" title="image 4" /></li>
+      <li><img src="http://ima.gs/E1E3AC/fff/none/500x350.png" alt="image 5" title="image 5" /></li>
     </ul>
   </div>
   <div class="tab html">
-    <pre>HTML markup...</pre>
+<pre><code class="html">&lt;ul id="gallery"&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/213435/fff/none/500x350.png" alt="image 1" title="image 1" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/46685B/fff/none/500x350.png" alt="image 2" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/648A64/fff/none/500x350.png" alt="image 3" title="image 3" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/A6B985/fff/none/500x350.png" alt="image 4" title="image 4" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/E1E3AC/fff/none/500x350.png" alt="image 5" title="image 5" /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
   </div>
   <div class="tab js">
-    <pre>Javascript code...</pre>
+<pre><code class="javascript">$('#gallery').flowgallery({
+  easing: 'easeOutCubic',
+  imagePadding: 0,
+  thumbPadding: 0,
+  thumbHeight: 350,
+  thumbWidth: 500
+});
+</code></pre>
   </div>
 </div><!-- .section -->
 
