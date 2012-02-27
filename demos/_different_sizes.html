@@ -1,0 +1,46 @@
+<div class="section active">
+  <ul class="tab-bar clearfix">
+    <li><a class="active" href="#demo">Demo</a></li>
+    <li><a href="#html">HTML</a></li>
+    <li><a href="#js">Javascript</a></li>
+  </ul>
+  <div class="tab demo active">
+    <h3>Different Image Sizes</h3>
+    <ul id="gallery3">
+      <li><img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal3" title="image 1" /></li>
+      <li><img src="http://ima.gs/020202/ddd/none/550x250.png" alt="fractal8" title="image 3" /></li>
+      <li><img src="http://ima.gs/020202/ddd/none/300x650.png" alt="fractal2" title="image 4" /></li>
+      <li><img src="http://ima.gs/020202/ddd/none/250x500.png" alt="fractal6" title="image 2" /></li>
+      <li><img src="http://ima.gs/020202/ddd/none/500x300.png" alt="fractal7" title="image 5" /></li>
+      <li><img src="http://ima.gs/020202/ddd/none/350x350.png" alt="fractal9" title="image 6" /></li>
+      <li><img src="http://ima.gs/020202/ddd/none/600x400.png" alt="fractal1" title="image 7" /></li>
+    </ul>
+  </div>
+  <div class="tab html">
+<pre><code class="html">&lt;ul id="gallery"&gt; 
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal3" title="image 1" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/550x250.png" alt="fractal6" title="image 2" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/300x650.png" alt="fractal8" title="image 3" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/250x500.png" alt="fractal2" title="image 4" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x300.png" alt="fractal7" title="image 5" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/350x350.png" alt="fractal9" title="image 6" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/600x400.png" alt="fractal1" title="image 7" /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+  </div>
+  <div class="tab js">
+<pre><code class="javascript">$('#gallery').flowgallery({
+  easing: 'easeOutCubic'
+});
+</code></pre>
+  </div>
+</div><!-- .section -->
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    // initialize with basic config options
+    $('#gallery3').flowgallery({
+      easing: 'easeOutCubic'
+    });
+  });
+</script>

@@ -281,6 +281,22 @@ ul.tab-bar a:hover {
 #demo-sections div.tab.demo {
   padding: 15px 0;
 }
+#demo-sections div.demo .scripting-controls {
+  margin-bottom: 10px;
+  text-align: center;
+}
+#demo-sections div.demo .scripting-controls label {
+  float: none;
+  margin: 0px 0px 0 20px;
+}
+#demo-sections div.demo .scripting-controls select {
+  font-size: 14px !important;
+  width: 50px;
+}
+#demo-sections div.demo .scripting-controls option {
+  font-size: 14px !important;
+  padding: 10px;
+}
 
 pre code {
   -moz-border-radius: 5px;

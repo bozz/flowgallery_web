@@ -1,0 +1,124 @@
+<div class="section active">
+  <ul class="tab-bar clearfix">
+    <li><a class="active" href="#demo">Demo</a></li>
+    <li><a href="#html">HTML</a></li>
+    <li><a href="#js">Javascript</a></li>
+  </ul>
+  <div class="tab demo active">
+    <h3>Basic Gallery Scripting</h3>
+    <div class="scripting-controls">
+      <button id="d4-prev-button" type="button">Previous</button>
+      <button id="d4-next-button" type="button">Next</button>
+      <label for="d4-goto-select">Goto:</label> <select id="d4-goto-select">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+      </select>
+      <label for="d4-enabled-cb">Enabled:</label> <input id="d4-enabled-cb" type="checkbox" checked="checked" />
+    </div>
+    <ul id="gallery4">
+      <li><img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal3" title="image 1" /></li>
+      <li><img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal6" /></li>
+      <li><img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal8" title="image 3" /></li>
+      <li><img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal2" title="image 4" /></li>
+      <li><img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal7" title="image 5" /></li>
+      <li><img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal9" title="image 6" /></li>
+      <li><img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal1" title="image 7" /></li>
+      <li><img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal4" title="image 8" /></li>
+    </ul>
+  </div>
+  <div class="tab html">
+<pre><code class="html">&lt;div class="scripting-controls"&gt;
+  &lt;button id="d4-prev-button" type="button"&gt;Previous&lt;/button&gt;
+  &lt;button id="d4-next-button" type="button"&gt;Next&lt;/button&gt;
+  &lt;label for="d4-goto-select"&gt;Goto:&lt;/label&gt; &lt;select id="d4-goto-select"&gt;
+    &lt;option&gt;0&lt;/option&gt;
+    &lt;option&gt;1&lt;/option&gt;
+    &lt;option&gt;2&lt;/option&gt;
+    &lt;option&gt;3&lt;/option&gt;
+    &lt;option&gt;4&lt;/option&gt;
+    &lt;option&gt;5&lt;/option&gt;
+    &lt;option&gt;6&lt;/option&gt;
+    &lt;option&gt;7&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;label for="d4-enabled-cb"&gt;Enabled:&lt;/label&gt; &lt;input id="d4-enabled-cb" type="checkbox" checked="checked" /&gt;
+&lt;/div&gt;
+&lt;ul id="gallery"&gt; 
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal3" title="image 1" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal6" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal8" title="image 3" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal2" title="image 4" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal7" title="image 5" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal9" title="image 6" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal1" title="image 7" /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="fractal4" title="image 8" /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+  </div>
+  <div class="tab js">
+<pre><code class="javascript">var $gallery = $('#gallery').flowgallery({
+  easing: 'easeOutCubic'
+});
+
+var flowgallery = $gallery.data('flowgallery');
+
+$('#d4-prev-button').click(function() {
+  flowgallery.prev();
+});
+
+$('#d4-next-button').click(function() {
+  flowgallery.next();
+});
+
+$('#d4-goto-select').change(function() {
+  flowgallery.goto( $(this).val() );
+});
+
+$('#d4-enabled-cb').click(function() {
+  if(gallery.isEnabled()) {
+    flowgallery.disable();
+  } else {
+    flowgallery.enable();
+  }
+});
+</code></pre>
+  </div>
+</div><!-- .section -->
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    // initialize with basic config options
+    var gallery = $('#gallery4').flowgallery({
+      easing: 'easeOutCubic'
+    }).data('flowgallery');
+
+    $('#d4-prev-button').click(function() {
+      gallery.prev();
+    });
+    $('#d4-next-button').click(function() {
+      gallery.next();
+    });
+
+    $('#d4-goto-select').css({
+      // override values from dropkick.js
+      position: 'static',
+      top: 'auto',
+      visibility: 'visible',
+    }).change(function() {
+      gallery.goto( $(this).val() );
+    });
+
+    $('#d4-enabled-cb').click(function() {
+      if(gallery.isEnabled()) {
+        gallery.disable();
+      } else {
+        gallery.enable();
+      }
+    });
+  });
+</script>

@@ -161,7 +161,9 @@ $(function() {
       if(activeSectionKey && sectionCache[activeSectionKey]) {
         sectionCache[activeSectionKey].find('div.demo ul').each(function(i) {
           var flowgallery = $(this).data('flowgallery');
-          flowgallery[enabled ? 'enable' : 'disable']();
+          if(flowgallery) {
+            flowgallery[enabled ? 'enable' : 'disable']();
+          }
         });
       }
     }
