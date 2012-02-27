@@ -35,168 +35,20 @@ The only CSS styling needed, is for the loading image as specified by the 'loadi
 }
 </code></pre>
 
+
 <h2><a name="config_options">Config Options</a></h2>
-<table id="config-options">
-  <tr>
-    <th>Property</th>
-    <th>Type</th>
-    <th>Default</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td class="key">activeIndex</td>
-    <td class="meta">integer</td>
-    <td class="meta">0</td>
-    <td>the index of the image that should initially be loaded as active</td>
-  </tr>
-  <tr>
-    <td class="key">animate</td>
-    <td class="meta">boolean</td>
-    <td class="meta">true</td>
-    <td>should the image transitions be animated</td>
-  </tr>
-  <tr>
-    <td class="key">backgroundColor</td>
-    <td class="meta">string</td>
-    <td class="meta">"black"</td>
-    <td>the background color of the border and caption</td>
-  </tr>
-  <tr>
-    <td class="key">duration</td>
-    <td class="meta">integer</td>
-    <td class="meta">900</td>
-    <td>duration setting for animations</td>
-  </tr>
-  <tr>
-    <td class="key">easing</td>
-    <td class="meta">string</td>
-    <td class="meta">"linear"</td>
-    <td>easing method to use for animation</td>
-  </tr>
-  <tr>
-    <td class="key">enableKeyNavigation</td>
-    <td class="meta">boolean</td>
-    <td class="meta">true</td>
-    <td>specifies if arrow keys (left and right) can be used for navigation</td>
-  </tr>
-  <tr>
-    <td class="key">forceHeight</td>
-    <td class="meta">false|integer</td>
-    <td class="meta">false</td>
-    <td>if specified, sets all images to this height</td>
-  </tr>
-  <tr>
-    <td class="key">forceWidth</td>
-    <td class="meta">false|integer</td>
-    <td class="meta">false</td>
-    <td>if specified, sets all images to this width</td>
-  </tr>
-  <tr>
-    <td class="key">forwardOnActiveClick</td>
-    <td class="meta">boolean</td>
-    <td class="meta">false</td>
-    <td>specifies if next image should be shown when clicking on active image</td>
-  </tr>
-  <tr>
-    <td class="key">imagePadding</td>
-    <td class="meta">integer</td>
-    <td class="meta">4</td>
-    <td>the visible border around active images</td>
-  </tr>
-  <tr>
-    <td class="key">loadingClass</td>
-    <td class="meta">string</td>
-    <td class="meta">"loading"</td>
-    <td>CSS class applied to &lt;li&gt; elements while image is loading, should be used to specify background loading image</td>
-  </tr>
-  <tr>
-    <td class="key">loadingHeight</td>
-    <td class="meta">integer</td>
-    <td class="meta">60</td>
-    <td>image width to use for placeholder image while loading if cannot be determined</td>
-  </tr>
-  <tr>
-    <td class="key">loadingWidth</td>
-    <td class="meta">integer</td>
-    <td class="meta">100</td>
-    <td>image height to use for placeholder image while loading if cannot be determined</td>
-  </tr>
-  <tr>
-    <td class="key">thumbHeight</td>
-    <td class="meta">"auto"|integer</td>
-    <td class="meta">"auto"</td>
-    <td>the height of image thumbnails or 'auto', calculated based on aspect ratio from thumbWidth</td>
-  </tr>
-  <tr>
-    <td class="key">thumbPadding</td>
-    <td class="meta">integer</td>
-    <td class="meta">3</td>
-    <td>the visible border around thumbnails</td>
-  </tr>
-  <tr>
-    <td class="key">thumbTopOffset</td>
-    <td class="meta">"auto"|integer</td>
-    <td class="meta">"auto"</td>
-    <td>the top offset of all thumbnails or 'auto' to center based on initial active image</td>
-  </tr>
-  <tr>
-    <td class="key">thumbWidth</td>
-    <td class="meta">"auto"|integer</td>
-    <td class="meta">"auto"</td>
-    <td>the width of the image thumbnails or 'auto', calculated based on aspect ratio from thumbHeight (value set to 100px if both thumbWidth and thumbHeight are set to 'auto')</td>
-  </tr>
-</table>
+
+{{file:_partials/_config_options.html}}
 
 <h2><a name="api">API</a></h2>
 
-The API object can be accessed through the "data" property using jQuery. This will return a API wrapper object "FlowGalleryApi" - this is used to interact with the gallery.
+The API object can be accessed through <a href="http://api.jquery.com/data/" target="blank">jQuery's data method</a>. This will return a API wrapper object "FlowGalleryApi" - this is used to interact with the gallery.
 
 <pre><code class="javascript">var flowgallery = $("#gallery").data('flowgallery');
 flowgallery.next();
 </code></pre>
 
-<table id="api-table">
-  <tr>
-    <th>Method</th>
-    <th>Returns</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td class="key">disable()</td>
-    <td class="meta">FlowGalleryApi</td>
-    <td>disable gallery, disable any event listeners; useful when hiding gallery</td>
-  </tr>
-  <tr>
-    <td class="key">enable()</td>
-    <td class="meta">FlowGalleryApi</td>
-    <td>enable gallery</td>
-  </tr>
-  <tr>
-    <td class="key">getLength()</td>
-    <td class="meta">number</td>
-    <td>get number of images in gallery</td>
-  </tr>
-  <tr>
-    <td class="key">getOptions()</td>
-    <td class="meta">Object</td>
-    <td>get current configuration options of gallery - these are the passed options merged with the defaults</td>
-  </tr>
-  <tr>
-    <td class="key">goto(index)</td>
-    <td class="meta">FlowGalleryApi</td>
-    <td>move to image with specified index</td>
-  </tr>
-  <tr>
-    <td class="key">next()</td>
-    <td class="meta">FlowGalleryApi</td>
-    <td>move to next image</td>
-  </tr>
-  <tr>
-    <td class="key">prev()</td>
-    <td class="meta">FlowGalleryApi</td>
-    <td>move to previous image</td>
-  </tr>
-</table>
+{{file:_partials/_api.html}}
 
 <h2><a name="demos">Demos</a></h2>
 <label for="demo-selector">Select a demo:</label>
@@ -204,7 +56,7 @@ flowgallery.next();
   <option value="default_settings">Default Settings</option>
   <option value="different_sizes">Different Image Sizes</option>
   <option value="no_scaling">No Image Scaling</option>
-  <option value="basic_scripting">Basic Scriping API</option>
+  <option value="basic_scripting">Basic Gallery Scriping</option>
 </select>
 
 <div id="demo-sections">

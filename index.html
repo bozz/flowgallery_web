@@ -71,7 +71,9 @@ The only CSS styling needed, is for the loading image as specified by the 'loadi
 }
 </code></pre>
 
+
 <h2><a name="config_options">Config Options</a></h2>
+
 <table id="config-options">
   <tr>
     <th>Property</th>
@@ -183,9 +185,10 @@ The only CSS styling needed, is for the loading image as specified by the 'loadi
   </tr>
 </table>
 
+
 <h2><a name="api">API</a></h2>
 
-The API object can be accessed through the "data" property using jQuery. This will return a API wrapper object "FlowGalleryApi" - this is used to interact with the gallery.
+The API object can be accessed through <a href="http://api.jquery.com/data/" target="blank">jQuery's data method</a>. This will return a API wrapper object "FlowGalleryApi" - this is used to interact with the gallery.
 
 <pre><code class="javascript">var flowgallery = $("#gallery").data('flowgallery');
 flowgallery.next();
@@ -223,6 +226,11 @@ flowgallery.next();
     <td>move to image with specified index</td>
   </tr>
   <tr>
+    <td class="key">isEnabled()</td>
+    <td class="meta">boolean</td>
+    <td>is the gallery currently enabled?</td>
+  </tr>
+  <tr>
     <td class="key">next()</td>
     <td class="meta">FlowGalleryApi</td>
     <td>move to next image</td>
@@ -234,13 +242,14 @@ flowgallery.next();
   </tr>
 </table>
 
+
 <h2><a name="demos">Demos</a></h2>
 <label for="demo-selector">Select a demo:</label>
 <select id="demo-selector" name="demo-selector">
   <option value="default_settings">Default Settings</option>
   <option value="different_sizes">Different Image Sizes</option>
   <option value="no_scaling">No Image Scaling</option>
-  <option value="basic_scripting">Basic Scriping API</option>
+  <option value="basic_scripting">Basic Gallery Scriping</option>
 </select>
 
 <div id="demo-sections">

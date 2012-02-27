@@ -34,9 +34,9 @@
   </div>
   <div class="tab html">
 <pre><code class="html">&lt;div class="scripting-controls"&gt;
-  &lt;button id="d4-prev-button" type="button"&gt;Previous&lt;/button&gt;
-  &lt;button id="d4-next-button" type="button"&gt;Next&lt;/button&gt;
-  &lt;label for="d4-goto-select"&gt;Goto:&lt;/label&gt; &lt;select id="d4-goto-select"&gt;
+  &lt;button id="prev-button" type="button"&gt;Previous&lt;/button&gt;
+  &lt;button id="next-button" type="button"&gt;Next&lt;/button&gt;
+  &lt;label for="goto-select"&gt;Goto:&lt;/label&gt; &lt;select id="goto-select"&gt;
     &lt;option&gt;0&lt;/option&gt;
     &lt;option&gt;1&lt;/option&gt;
     &lt;option&gt;2&lt;/option&gt;
@@ -46,7 +46,7 @@
     &lt;option&gt;6&lt;/option&gt;
     &lt;option&gt;7&lt;/option&gt;
   &lt;/select&gt;
-  &lt;label for="d4-enabled-cb"&gt;Enabled:&lt;/label&gt; &lt;input id="d4-enabled-cb" type="checkbox" checked="checked" /&gt;
+  &lt;label for="enabled-checkbox"&gt;Enabled:&lt;/label&gt; &lt;input id="enabled-checkbox" type="checkbox" checked="checked" /&gt;
 &lt;/div&gt;
 &lt;ul id="gallery"&gt; 
   &lt;li&gt;&lt;img src="http://ima.gs/020202/ddd/none/500x350.png" alt="image 1" title="image 1" /&gt;&lt;/li&gt;
@@ -67,19 +67,19 @@
 
 var flowgallery = $gallery.data('flowgallery');
 
-$('#d4-prev-button').click(function() {
+$('#prev-button').click(function() {
   flowgallery.prev();
 });
 
-$('#d4-next-button').click(function() {
+$('#next-button').click(function() {
   flowgallery.next();
 });
 
-$('#d4-goto-select').change(function() {
+$('#goto-select').change(function() {
   flowgallery.goto( $(this).val() );
 });
 
-$('#d4-enabled-cb').click(function() {
+$('#enabled-checkbox').click(function() {
   if(gallery.isEnabled()) {
     flowgallery.disable();
   } else {
