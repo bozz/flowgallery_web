@@ -54,11 +54,15 @@ For basic usage, select the appropriate list and initialize as follows:
 
 <pre><code class="javascript">$("#gallery").flowGallery();</code></pre>
 
-Per default active images will be displayed at their full size and all others in a scaled down version.
-
-
-The gallery works best if full width of browser window can be used. No direct CSS styling of gallery list required, the plugin sets everything up as needed. Be careful if you do any CSS styling of the list, this could break functionality.
-The only CSS styling needed, is for the loading image as specified by the 'loadingClass' attribute. Here is an example, adjust accordingly:
+Per default active images will be displayed at their full size and all others in a scaled down version as thumbnails.
+<br />
+<br />
+Additional CSS styling is not required for the gallery to work, but a few things can be done to improve the experience:
+<ul class="list">
+  <li>As the page is loading, to avoid displaying gallery images before the script is loaded, we recommend setting "visibility=hidden" for any galleries. After loading is complete, the script will automatically set "visibility=visible".</li>
+  <li>It is also recommended to set a loading image through CSS to be used while images are being loaded (especially when loading remote images). The used CSS class can be configured with the "loadingClass" config parameter.</li>
+  <li>The caption text can be styled through the "fg-caption" class.</li>
+</ul>
 
 <pre><code class="css">#gallery {
   visibility: hidden;
@@ -175,7 +179,7 @@ The only CSS styling needed, is for the loading image as specified by the 'loadi
     <td class="key">thumbTopOffset</td>
     <td class="meta">"auto"|integer</td>
     <td class="meta">"auto"</td>
-    <td>the top offset of all thumbnails or 'auto' to center based on initial active image</td>
+    <td>the top offset of all thumbnails or 'auto' to center based on active image</td>
   </tr>
   <tr>
     <td class="key">thumbWidth</td>

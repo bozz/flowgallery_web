@@ -185,6 +185,13 @@ h2 a:hover {
   color: #333;
   text-decoration: none;
 }
+ul.list {
+  list-style: disc outside;
+  padding-left: 20px
+}
+ul.list li {
+  margin: 6px 0;
+}
 label {
   float: left;
   margin: 6px 15px 0 0;

@@ -1,6 +1,6 @@
-h1. website for flowgallery.js
+# website for flowgallery.js #
 
-h2. dependencies
+## dependencies ##
 
 Node is needed to run build tasks. For running simple tasks Jake is used (https://github.com/mde/jake) - similar to Rake or Make. So make sure the Jake module is installed:
 
@@ -15,11 +15,11 @@ git submodule init
 git submodule update
 </pre>
 
-h2. development
+## development ##
 
 The website is mainly a single page site - with the exception that additional demos are loaded through ajax. A very simple include mechanism is used to separate out parts of the page during development. Actual development should happen on the files in the "_partials" directory (and NOT on index.html directly!), these are then "compiled" together with a build task (see below) to generate the "index.html". This will allow different build targets for development and production.
 
-h2. build tasks
+## build tasks ##
 
 There are currently two tasks available:
 
@@ -27,7 +27,7 @@ There are currently two tasks available:
 @jake prod@ - this will create the production version of site in "_release" folder (with minified assets)
 @jake server@ - local server on port 8080, that allows loading the demos with ajax
 
-h2. todos
+## todos ##
 
 Some things that are still missing:
 
