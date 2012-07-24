@@ -76,7 +76,7 @@ $('#next-button').click(function() {
 });
 
 $('#goto-select').change(function() {
-  flowgallery.goto( $(this).val() );
+  flowgallery.jump( $(this).val() );
 });
 
 $('#enabled-checkbox').click(function() {
@@ -110,7 +110,7 @@ $('#enabled-checkbox').click(function() {
       top: 'auto',
       visibility: 'visible',
     }).change(function() {
-      gallery.goto( $(this).val() );
+      gallery.jump( $(this).val() );
     });
 
     $('#d4-enabled-cb').click(function() {
