@@ -45,6 +45,9 @@ $(function() {
         anchor = $(this).attr('href').match(/#(.*)/)[1];
         target = $('a[name=' + anchor + ']');
         ran = false;
+        if(document.location.host.indexOf('localhost') == -1) {
+          piwikTracker.trackPageView('nav/' + anchor);
+        }
         $('html, body').animate({
           scrollTop: target.offset().top - 60
         }, 400, function() {
