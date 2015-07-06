@@ -7,7 +7,7 @@
     "js/highlight/highlight.js",
     "js/highlight/xml.js",
     "js/highlight/javascript.js",
-    "_lib/flowgallery/release/jquery.flowgallery.js",
+    "js/jquery.flowgallery.js",
     "js/script.js"
   ],
   "stylesheets": [
