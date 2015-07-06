@@ -131,8 +131,8 @@ var processAssetTag = function(inputFile, assetType, mode) {
       targetFile = releaseFolder + 'js/script.min.js';
       output += "<script src='js/script.min.js' type='text/javascript'></script>\n";
 
-      // add piwik code in prod mode
-      output += fs.readFileSync('_partials/_piwik.html', 'utf8');
+      // // add piwik code in prod mode
+      // output += fs.readFileSync('_partials/_piwik.html', 'utf8');
 
     } else if(assetType === 'stylesheets') {
       targetFile = releaseFolder + 'css/skin.css';
