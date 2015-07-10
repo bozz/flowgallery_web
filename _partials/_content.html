@@ -1,5 +1,5 @@
 <h2><a name="introduction">Introduction</a></h2>
-flowgallery.js is a robust and versatile image gallery. Works well with images of different sizes (i.e. mixed landscape and portrait) or same sized images.
+flowGallery.js is a robust and versatile image gallery. Works well with images of different sizes (i.e. mixed landscape and portrait) or same sized images.
 
 <h2><a name="usage">Usage</a></h2>
 The required markup for the image gallery is a simple unordered list of images. Any text set in the "title" attribute of the image will be displayed in a caption below the image.
@@ -16,7 +16,7 @@ The required markup for the image gallery is a simple unordered list of images. 
 
 For basic usage, select the appropriate list and initialize as follows:
 
-<pre><code class="javascript">$("#gallery").flowGallery();</code></pre>
+<pre><code class="javascript">$("#gallery").flowgallery();</code></pre>
 
 Per default active images will be displayed at their full size and all others in a scaled down version as thumbnails.
 <br />
@@ -48,8 +48,8 @@ Additional CSS styling is not required for the gallery to work, but a few things
 
 The API object can be accessed through <a href="http://api.jquery.com/data/" target="blank">jQuery's data method</a>. This will return a API wrapper object "FlowGalleryApi" - this is used to interact with the gallery.
 
-<pre><code class="javascript">var flowgallery = $("#gallery").data('flowgallery');
-flowgallery.next();
+<pre><code class="javascript">var flowGallery = $("#gallery").data('flowgallery');
+flowGallery.next();
 </code></pre>
 
 {{file:_partials/_api.html}}

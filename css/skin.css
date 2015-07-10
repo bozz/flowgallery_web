@@ -8,6 +8,7 @@ body {
   color: #333;
   font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif;
   font-size: 14px;
+  line-height: 1.5em;
 }
 
 a,
@@ -250,7 +251,7 @@ ul.tab-bar li {
 ul.tab-bar a {
   background-color: #999;
   color: #555;
-  padding: 10px 25px;
+  padding: 12px 25px;
 }
 ul.tab-bar a {
   -moz-border-radius-topleft: 5px;
@@ -344,4 +345,7 @@ p.fg-caption {
   line-height: 1.5em;
   margin: 0;
   text-align: left;
+}
+.fg-wrapper {
+  padding-bottom: 30px;
 }

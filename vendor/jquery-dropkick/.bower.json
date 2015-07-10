@@ -1,0 +1,20 @@
+{
+  "name": "dropkick",
+  "main": [
+    "build/dropkick.js",
+    "build/css/dropkick.css"
+  ],
+  "description": "A JavaScript plugin for creating beautiful, graceful, and painless custom dropdowns.",
+  "homepage": "https://github.com/JamieLottering/DropKick",
+  "version": "2.1.5",
+  "_release": "2.1.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.1.5",
+    "commit": "3ceba25c94f930de0273cd375bf5f071c5770ac4"
+  },
+  "_source": "git://github.com/JamieLottering/DropKick.git",
+  "_target": "~2.1.5",
+  "_originalSource": "jquery-dropkick",
+  "_direct": true
+}

@@ -1,0 +1,8 @@
+{
+  "name": "dropkick",
+  "main": [
+    "build/dropkick.js",
+    "build/css/dropkick.css"
+  ],
+  "description": "A JavaScript plugin for creating beautiful, graceful, and painless custom dropdowns."
+}

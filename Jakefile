@@ -106,11 +106,11 @@ var processAssetTag = function(inputFile, assetType, mode) {
   // generate script or link tags 
   var i, output = "", combined = "";
 
-  if(assetType === 'javascripts') {
-    output += "<!-- include jQuery - remote from CDN or get local fallback -->\n";
-    output += "<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>\n";
-    output += "<script>window.jQuery || document.write('<script src=\"js/jquery-1.7.1.min.js\"><\\/script>')</script>\n";
-  }
+  // if(assetType === 'javascripts') {
+  //   output += "<!-- include jQuery - remote from CDN or get local fallback -->\n";
+  //   output += "<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>\n";
+  //   output += "<script>window.jQuery || document.write('<script src=\"js/jquery-1.7.1.min.js\"><\\/script>')</script>\n";
+  // }
 
   for(i=0; i<assetConfig[assetType].length; i++) {
     if(mode === 'prod') {
@@ -165,7 +165,7 @@ task('server', ['default'], function (params) {
     var uri = url.parse(request.url).pathname;
     var filename = libpath.join(path, uri);
 
-    libpath.exists(filename, function (exists) {
+    fs.exists(filename, function (exists) {
       if (!exists) {
         response.writeHead(404, {
           "Content-Type": "text/plain"

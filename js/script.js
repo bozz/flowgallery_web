@@ -70,9 +70,8 @@ $(function() {
      */
     var initSection = function() {
       $('ul.tab-bar').tabs();
-      $('pre code').each(function(i, e) {
-        hljs.highlightBlock(e, '    ');
-      });
+
+      hljs.initHighlightingOnLoad();
     };
 
     /**
@@ -90,7 +89,8 @@ $(function() {
      * cache if available or load remotely otherwise.
      * @param {string} key demo key, used as cache key or to build remote url
      */
-    var demoSelectionHandler = function(key) {
+    var demoSelectionHandler = function() {
+      var key = this.value;
       setGalleriesEnabled(false);
       if(sectionCache[key]) {
         $('#demo-sections > div.section').hide();
@@ -99,8 +99,9 @@ $(function() {
         activeSectionKey = key;
         setGalleriesEnabled(true);
 
-        var flowgallery = sectionCache[key].find('div.demo ul').data('flowgallery');
-        flowgallery.jump(0, false);
+        var flowGallery = sectionCache[key].find('div.demo ul').data('flowgallery');
+
+        flowGallery.jump(0, false);
 
         // refocus selected demo
         $('#nav a[href=#demos]').click();
@@ -151,6 +152,11 @@ $(function() {
           sectionCache[cacheKey] = $newSection; 
           $newSection.fadeIn('slow');
           $('#nav a[href=#demos]').click();
+
+          $('#demo-sections pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+          });
+
         }
       });
     };
@@ -163,9 +169,9 @@ $(function() {
     function setGalleriesEnabled(enabled) {
       if(activeSectionKey && sectionCache[activeSectionKey]) {
         sectionCache[activeSectionKey].find('div.demo ul').each(function(i) {
-          var flowgallery = $(this).data('flowgallery');
-          if(flowgallery) {
-            flowgallery[enabled ? 'enable' : 'disable']();
+          var flowGallery = $(this).data('flowgallery');
+          if(flowGallery) {
+            flowGallery[enabled ? 'enable' : 'disable']();
           }
         });
       }
